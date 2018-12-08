@@ -1,0 +1,91 @@
+﻿@model Pofo.Models.AboutPage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AboutPage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LeftPreTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeftPreTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeftTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeftTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeftText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeftText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RightPreText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RightPreText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverviewTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverviewTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverViewVideo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverViewVideo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverViewBgPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverViewBgPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainSlogan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainSlogan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Languages.LangName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Languages.LangName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

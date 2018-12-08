@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PofoDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ArticleCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PreTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="Self.FK_ArticleCompany_Languages" FromRole="ArticleCompany" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="HonorNumbers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="Self.FK_HonorNumbers_Languages" FromRole="HonorNumbers" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="InstaPosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ViewCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LangName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleCompany" Relationship="Self.FK_ArticleCompany_Languages" FromRole="Languages" ToRole="ArticleCompany" />
+    <NavigationProperty Name="HonorNumbers" Relationship="Self.FK_HonorNumbers_Languages" FromRole="Languages" ToRole="HonorNumbers" />
+    <NavigationProperty Name="Agency" Relationship="PofoDbModel.FK_Agency_Languages" FromRole="Languages" ToRole="Agency" />
+    <NavigationProperty Name="People" Relationship="PofoDbModel.FK_People_Sections" FromRole="Languages" ToRole="People" />
+    <NavigationProperty Name="CreativPeople" Relationship="PofoDbModel.FK_CreativPeople_Languages" FromRole="Languages" ToRole="CreativPeople" />
+    <NavigationProperty Name="AboutPage" Relationship="PofoDbModel.FK_AboutPage_Languages" FromRole="Languages" ToRole="AboutPage" />
+    <NavigationProperty Name="Departments" Relationship="PofoDbModel.FK_Departments_Languages" FromRole="Languages" ToRole="Departments" />
+    <NavigationProperty Name="BuildWebSites" Relationship="PofoDbModel.FK_BuildWebSites_Languages" FromRole="Languages" ToRole="BuildWebSites" />
+    <NavigationProperty Name="ServicePage" Relationship="PofoDbModel.FK_ServicePage_Languages" FromRole="Languages" ToRole="ServicePage" />
+    <NavigationProperty Name="Provide" Relationship="PofoDbModel.FK_Provide_Languages" FromRole="Languages" ToRole="Provide" />
+    <NavigationProperty Name="Titles" Relationship="PofoDbModel.FK_Titles_Languages" FromRole="Languages" ToRole="Titles" />
+    <NavigationProperty Name="Team" Relationship="PofoDbModel.FK_Team_Languages" FromRole="Languages" ToRole="Team" />
+    <NavigationProperty Name="Settings" Relationship="PofoDbModel.FK_Settings_Languages" FromRole="Languages" ToRole="Settings" />
+    <NavigationProperty Name="ContactUs" Relationship="PofoDbModel.FK_ContactUs_Languages" FromRole="Languages" ToRole="ContactUs" />
+    <NavigationProperty Name="NewProject" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="Languages" ToRole="NewProject" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_ArticleCompany_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="ArticleCompany" Type="Self.ArticleCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleCompany">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HonorNumbers_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="HonorNumbers" Type="Self.HonorNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HonorNumbers">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PofoDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticleCompany" EntityType="Self.ArticleCompany" />
+    <EntitySet Name="HonorNumbers" EntityType="Self.HonorNumbers" />
+    <EntitySet Name="InstaPosts" EntityType="Self.InstaPosts" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_ArticleCompany_Languages" Association="Self.FK_ArticleCompany_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ArticleCompany" EntitySet="ArticleCompany" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HonorNumbers_Languages" Association="Self.FK_HonorNumbers_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="HonorNumbers" EntitySet="HonorNumbers" />
+    </AssociationSet>
+    <EntitySet Name="Photos" EntityType="PofoDbModel.Photos" />
+    <EntitySet Name="Sections" EntityType="PofoDbModel.Sections" />
+    <AssociationSet Name="FK_Photos_Sections" Association="PofoDbModel.FK_Photos_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <EntitySet Name="Agency" EntityType="PofoDbModel.Agency" />
+    <AssociationSet Name="FK_Agency_Languages" Association="PofoDbModel.FK_Agency_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Agency" EntitySet="Agency" />
+    </AssociationSet>
+    <EntitySet Name="People" EntityType="PofoDbModel.People" />
+    <AssociationSet Name="FK_People_Sections" Association="PofoDbModel.FK_People_Sections">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="People" EntitySet="People" />
+    </AssociationSet>
+    <EntitySet Name="CreativPeople" EntityType="PofoDbModel.CreativPeople" />
+    <AssociationSet Name="FK_CreativPeople_Languages" Association="PofoDbModel.FK_CreativPeople_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="CreativPeople" EntitySet="CreativPeople" />
+    </AssociationSet>
+    <EntitySet Name="AboutPage" EntityType="PofoDbModel.AboutPage" />
+    <AssociationSet Name="FK_AboutPage_Languages" Association="PofoDbModel.FK_AboutPage_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="AboutPage" EntitySet="AboutPage" />
+    </AssociationSet>
+    <EntitySet Name="DepCardPhotos" EntityType="PofoDbModel.DepCardPhotos" />
+    <EntitySet Name="Departments" EntityType="PofoDbModel.Departments" />
+    <EntitySet Name="DepCards" EntityType="PofoDbModel.DepCards" />
+    <AssociationSet Name="FK_Departments_Languages" Association="PofoDbModel.FK_Departments_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepCards_Departments" Association="PofoDbModel.FK_DepCards_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="DepCards" EntitySet="DepCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepCardPhotos_DepCards1" Association="PofoDbModel.FK_DepCardPhotos_DepCards1">
+      <End Role="DepCards" EntitySet="DepCards" />
+      <End Role="DepCardPhotos" EntitySet="DepCardPhotos" />
+    </AssociationSet>
+    <EntitySet Name="BuildWebSites" EntityType="PofoDbModel.BuildWebSites" />
+    <EntitySet Name="ServicePage" EntityType="PofoDbModel.ServicePage" />
+    <AssociationSet Name="FK_BuildWebSites_Languages" Association="PofoDbModel.FK_BuildWebSites_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="BuildWebSites" EntitySet="BuildWebSites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicePage_Languages" Association="PofoDbModel.FK_ServicePage_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ServicePage" EntitySet="ServicePage" />
+    </AssociationSet>
+    <EntitySet Name="Provide" EntityType="PofoDbModel.Provide" />
+    <EntitySet Name="Titles" EntityType="PofoDbModel.Titles" />
+    <AssociationSet Name="FK_Provide_Languages" Association="PofoDbModel.FK_Provide_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Provide" EntitySet="Provide" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Titles_Languages" Association="PofoDbModel.FK_Titles_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Titles" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Titles_Sections" Association="PofoDbModel.FK_Titles_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Titles" EntitySet="Titles" />
+    </AssociationSet>
+    <EntitySet Name="Team" EntityType="PofoDbModel.Team" />
+    <AssociationSet Name="FK_Team_Languages" Association="PofoDbModel.FK_Team_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <EntitySet Name="Settings" EntityType="PofoDbModel.Settings" />
+    <AssociationSet Name="FK_Settings_Languages" Association="PofoDbModel.FK_Settings_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Settings" EntitySet="Settings" />
+    </AssociationSet>
+    <EntitySet Name="Message" EntityType="PofoDbModel.Message" />
+    <EntitySet Name="ContactUs" EntityType="PofoDbModel.ContactUs" />
+    <AssociationSet Name="FK_ContactUs_Languages" Association="PofoDbModel.FK_ContactUs_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ContactUs" EntitySet="ContactUs" />
+    </AssociationSet>
+    <EntitySet Name="NewProject" EntityType="PofoDbModel.NewProject" />
+    <AssociationSet Name="FK_NewProject_Languages" Association="PofoDbModel.FK_NewProject_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="NewProject" EntitySet="NewProject" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhotoName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SectionId" Type="Int32" />
+    <NavigationProperty Name="Sections" Relationship="PofoDbModel.FK_Photos_Sections" FromRole="Photos" ToRole="Sections" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Photos" Relationship="PofoDbModel.FK_Photos_Sections" FromRole="Sections" ToRole="Photos" />
+    <NavigationProperty Name="Titles" Relationship="PofoDbModel.FK_Titles_Sections" FromRole="Sections" ToRole="Titles" />
+  </EntityType>
+  <Association Name="FK_Photos_Sections">
+    <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Photos" Role="Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Agency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Agency_Languages" FromRole="Agency" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_Agency_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Agency" Role="Agency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agency">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Work" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_People_Sections" FromRole="People" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_People_Sections">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.People" Role="People" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="People">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CreativPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Google" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_CreativPeople_Languages" FromRole="CreativPeople" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_CreativPeople_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.CreativPeople" Role="CreativPeople" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreativPeople">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AboutPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeftPreTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LeftTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LeftText" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="RightPreText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OverviewTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OverViewVideo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="OverViewBgPic" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="MainSlogan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_AboutPage_Languages" FromRole="AboutPage" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_AboutPage_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.AboutPage" Role="AboutPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AboutPage">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DepCardPhotos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhotoName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="DepCardId" Type="Int32" />
+    <NavigationProperty Name="DepCards" Relationship="PofoDbModel.FK_DepCardPhotos_DepCards1" FromRole="DepCardPhotos" ToRole="DepCards" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Departments_Languages" FromRole="Departments" ToRole="Languages" />
+    <NavigationProperty Name="DepCards" Relationship="PofoDbModel.FK_DepCards_Departments" FromRole="Departments" ToRole="DepCards" />
+  </EntityType>
+  <EntityType Name="DepCards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departments" Relationship="PofoDbModel.FK_DepCards_Departments" FromRole="DepCards" ToRole="Departments" />
+    <NavigationProperty Name="DepCardPhotos" Relationship="PofoDbModel.FK_DepCardPhotos_DepCards1" FromRole="DepCards" ToRole="DepCardPhotos" />
+  </EntityType>
+  <Association Name="FK_Departments_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Departments" Role="Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepCards_Departments">
+    <End Type="PofoDbModel.Departments" Role="Departments" Multiplicity="0..1" />
+    <End Type="PofoDbModel.DepCards" Role="DepCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepCards">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepCardPhotos_DepCards1">
+    <End Type="PofoDbModel.DepCards" Role="DepCards" Multiplicity="0..1" />
+    <End Type="PofoDbModel.DepCardPhotos" Role="DepCardPhotos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepCards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepCardPhotos">
+        <PropertyRef Name="DepCardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BuildWebSites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_BuildWebSites_Languages" FromRole="BuildWebSites" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="ServicePage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainSlogan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OverviewTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OverviewVideo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OverViewBgPic" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_ServicePage_Languages" FromRole="ServicePage" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_BuildWebSites_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.BuildWebSites" Role="BuildWebSites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BuildWebSites">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicePage_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.ServicePage" Role="ServicePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServicePage">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Provide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Provide_Languages" FromRole="Provide" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="Titles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RedTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <Property Name="SecId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Titles_Languages" FromRole="Titles" ToRole="Languages" />
+    <NavigationProperty Name="Sections" Relationship="PofoDbModel.FK_Titles_Sections" FromRole="Titles" ToRole="Sections" />
+  </EntityType>
+  <Association Name="FK_Provide_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Provide" Role="Provide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provide">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Titles_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Titles" Role="Titles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Titles">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Titles_Sections">
+    <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Titles" Role="Titles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Titles">
+        <PropertyRef Name="SecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="About" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Team_Languages" FromRole="Team" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_Team_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Logo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SecondLogo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="355" FixedLength="true" Unicode="true" />
+    <Property Name="Dribble" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Google" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Intstagram" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="AboutAgaency" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Settings_Languages" FromRole="Settings" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_Settings_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.Settings" Role="Settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Settings">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContentMessage" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainSlogan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_ContactUs_Languages" FromRole="ContactUs" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_ContactUs_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="1" />
+    <End Type="PofoDbModel.ContactUs" Role="ContactUs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactUs">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NewProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="NewProject" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_NewProject_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.NewProject" Role="NewProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewProject">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

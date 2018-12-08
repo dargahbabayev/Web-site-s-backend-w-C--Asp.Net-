@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Pofo.Models.ViewHome
+
+
+
+<!-- start parallax section -->
+@foreach (var servisPage in Model.ServicePage)
+{
+    <section class="parallax big-section wow fadeIn" data-stellar-background-ratio="0.5" style="background-image:url('/Uploads/@servisPage.OverViewBgPic');">
+        <div class="opacity-extra-medium bg-black"></div>
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 text-center center-col">
+                    <a href="@servisPage.OverviewVideo" class="popup-youtube"><img src="~/Public/images/icon-play.png" class="width-30" alt="" /></a>
+                    <h5 class="alt-font text-white">@servisPage.OverviewTitle</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<!-- end parallax section -->
+<!-- start feature box section -->
+<section class="wow fadeIn last-paragraph-no-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-9 center-col margin-eight-bottom text-center last-paragraph-no-margin">
+                <div class="alt-font text-deep-pink margin-10px-bottom text-uppercase text-small">Technology Expert Analysis</div>
+                <h5 class="alt-font text-extra-dark-gray font-weight-600">We provide high quality and cost effective offshore web development services</h5>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Team)
+    {
+        <!-- start feature box item -->
+        <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-30px-bottom wow fadeInUp">
+            <div class="feature-box-16 xs-width-100">
+                <img src="/Uploads/@item.Photo" alt="">
+                <div class="feature-box-content text-center">
+                    <div class="opacity-full-dark bg-extra-dark-gray"></div>
+                    <div class="display-table height-100 width-100 position-relative">
+                        <div class="vertical-align-middle display-table-cell padding-15px-lr padding-20px-tb">
+                            <div class="text-white alt-font text-medium margin-15px-bottom">@item.Title</div>
+                            <p class="width-85 center-col text-extra-light-gray">@item.About</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+
+
+        </div>
+    </div>
+</section>
+<!-- end feature box section -->

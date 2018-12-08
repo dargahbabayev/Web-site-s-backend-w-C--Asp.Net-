@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a1d25cc32aa4ae8aef0d8dcb3546afb" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="PofoDbModel.ArticleCompany" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PofoDbModel.HonorNumbers" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PofoDbModel.InstaPosts" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PofoDbModel.Languages" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PofoDbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="PofoDbModel.FK_ArticleCompany_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="PofoDbModel.FK_HonorNumbers_Languages" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PofoDbModel.Photos" Width="1.5" PointX="7.625" PointY="0.875" />
+        <EntityTypeShape EntityType="PofoDbModel.Sections" Width="1.5" PointX="5.375" PointY="1" />
+        <AssociationConnector Association="PofoDbModel.FK_Photos_Sections" />
+        <EntityTypeShape EntityType="PofoDbModel.Agency" Width="1.5" PointX="5" PointY="23" />
+        <AssociationConnector Association="PofoDbModel.FK_Agency_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.People" Width="1.5" PointX="3" PointY="26.75" />
+        <AssociationConnector Association="PofoDbModel.FK_People_Sections" />
+        <EntityTypeShape EntityType="PofoDbModel.CreativPeople" Width="1.5" PointX="3" PointY="30.5" />
+        <AssociationConnector Association="PofoDbModel.FK_CreativPeople_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.AboutPage" Width="1.5" PointX="3" PointY="34.375" />
+        <AssociationConnector Association="PofoDbModel.FK_AboutPage_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.Departments" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="PofoDbModel.DepCards" Width="1.5" PointX="5.25" PointY="9.875" />
+        <AssociationConnector Association="PofoDbModel.FK_Departments_Languages" />
+        <AssociationConnector Association="PofoDbModel.FK_DepCards_Departments" />
+        <EntityTypeShape EntityType="PofoDbModel.BuildWebSites" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="PofoDbModel.ServicePage" Width="1.5" PointX="3" PointY="38.375" />
+        <AssociationConnector Association="PofoDbModel.FK_BuildWebSites_Languages" />
+        <AssociationConnector Association="PofoDbModel.FK_ServicePage_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.Provide" Width="1.5" PointX="3" PointY="19.875" />
+        <EntityTypeShape EntityType="PofoDbModel.Titles" Width="1.5" PointX="7.625" PointY="9.875" />
+        <AssociationConnector Association="PofoDbModel.FK_Provide_Languages" />
+        <AssociationConnector Association="PofoDbModel.FK_Titles_Languages" />
+        <AssociationConnector Association="PofoDbModel.FK_Titles_Sections" />
+        <EntityTypeShape EntityType="PofoDbModel.Team" Width="1.5" PointX="3" PointY="16" />
+        <AssociationConnector Association="PofoDbModel.FK_Team_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.Settings" Width="1.5" PointX="3" PointY="41.5" />
+        <AssociationConnector Association="PofoDbModel.FK_Settings_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.Message" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="PofoDbModel.ContactUs" Width="1.5" PointX="1.125" PointY="0.75" />
+        <AssociationConnector Association="PofoDbModel.FK_ContactUs_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.NewProject" Width="1.5" PointX="3" PointY="46.125" />
+        <AssociationConnector Association="PofoDbModel.FK_NewProject_Languages" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PofoDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AboutPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LeftPreTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="LeftTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="LeftText" Type="nvarchar" MaxLength="350" />
+    <Property Name="RightPreText" Type="nvarchar" MaxLength="100" />
+    <Property Name="OverviewTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="OverViewVideo" Type="nvarchar" MaxLength="350" />
+    <Property Name="OverViewBgPic" Type="nvarchar" MaxLength="350" />
+    <Property Name="MainSlogan" Type="nvarchar" MaxLength="100" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Agency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="355" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="nvarchar" MaxLength="350" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="ArticleCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PreTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Text" Type="nvarchar" MaxLength="250" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="BuildWebSites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="350" />
+    <Property Name="Text" Type="nvarchar" MaxLength="350" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainSlogan" Type="nvarchar" MaxLength="100" />
+    <Property Name="LangId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CreativPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="500" />
+    <Property Name="Google" Type="nvarchar" MaxLength="500" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="500" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="DepCardPhotos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="350" />
+    <Property Name="DepCardId" Type="int" />
+  </EntityType>
+  <EntityType Name="DepCards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepId" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="450" />
+    <Property Name="Text" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="HonorNumbers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Number" Type="int" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="InstaPosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="500" />
+    <Property Name="Link" Type="nvarchar" MaxLength="500" />
+    <Property Name="ViewCount" Type="int" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LangName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" />
+    <Property Name="Email" Type="nvarchar" MaxLength="70" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="150" />
+    <Property Name="ContentMessage" Type="nvarchar" MaxLength="700" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="nvarchar" MaxLength="350" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="350" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Work" Type="nvarchar" MaxLength="50" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text" Type="nvarchar" MaxLength="1000" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="255" />
+    <Property Name="SectionId" Type="int" />
+  </EntityType>
+  <EntityType Name="Provide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="355" />
+    <Property Name="Text" Type="nvarchar" MaxLength="500" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ServicePage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainSlogan" Type="nvarchar" MaxLength="250" />
+    <Property Name="OverviewTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="OverviewVideo" Type="nvarchar" MaxLength="500" />
+    <Property Name="OverViewBgPic" Type="nvarchar" MaxLength="350" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+    <Property Name="SecondLogo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="355" />
+    <Property Name="Twitter" Type="nchar" MaxLength="355" />
+    <Property Name="Dribble" Type="nvarchar" MaxLength="355" />
+    <Property Name="Google" Type="nvarchar" MaxLength="355" />
+    <Property Name="Intstagram" Type="nvarchar" MaxLength="355" />
+    <Property Name="AboutAgaency" Type="nvarchar" MaxLength="500" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="350" />
+    <Property Name="About" Type="nvarchar" MaxLength="500" />
+    <Property Name="LangId" Type="int" />
+  </EntityType>
+  <EntityType Name="Titles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RedTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" />
+    <Property Name="Text" Type="nvarchar" MaxLength="350" />
+    <Property Name="LangId" Type="int" />
+    <Property Name="SecId" Type="int" />
+  </EntityType>
+  <Association Name="FK_AboutPage_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="AboutPage" Type="Self.AboutPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AboutPage">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agency_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Agency" Type="Self.Agency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agency">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleCompany_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="ArticleCompany" Type="Self.ArticleCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleCompany">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuildWebSites_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="BuildWebSites" Type="Self.BuildWebSites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BuildWebSites">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactUs_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="ContactUs" Type="Self.ContactUs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactUs">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreativPeople_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="CreativPeople" Type="Self.CreativPeople" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreativPeople">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepCardPhotos_DepCards1">
+    <End Role="DepCards" Type="Self.DepCards" Multiplicity="0..1" />
+    <End Role="DepCardPhotos" Type="Self.DepCardPhotos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepCards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepCardPhotos">
+        <PropertyRef Name="DepCardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepCards_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="DepCards" Type="Self.DepCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepCards">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HonorNumbers_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="HonorNumbers" Type="Self.HonorNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HonorNumbers">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NewProject_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="NewProject" Type="Self.NewProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewProject">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_People_Sections">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="People" Type="Self.People" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="People">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provide_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Provide" Type="Self.Provide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provide">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicePage_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="ServicePage" Type="Self.ServicePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServicePage">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Settings_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Settings" Type="Self.Settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Settings">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Titles_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="Titles" Type="Self.Titles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Titles">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Titles_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+    <End Role="Titles" Type="Self.Titles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Titles">
+        <PropertyRef Name="SecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PofoDbModelStoreContainer">
+    <EntitySet Name="AboutPage" EntityType="Self.AboutPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agency" EntityType="Self.Agency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleCompany" EntityType="Self.ArticleCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildWebSites" EntityType="Self.BuildWebSites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CreativPeople" EntityType="Self.CreativPeople" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepCardPhotos" EntityType="Self.DepCardPhotos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepCards" EntityType="Self.DepCards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HonorNumbers" EntityType="Self.HonorNumbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InstaPosts" EntityType="Self.InstaPosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewProject" EntityType="Self.NewProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provide" EntityType="Self.Provide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServicePage" EntityType="Self.ServicePage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AboutPage_Languages" Association="Self.FK_AboutPage_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="AboutPage" EntitySet="AboutPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agency_Languages" Association="Self.FK_Agency_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Agency" EntitySet="Agency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleCompany_Languages" Association="Self.FK_ArticleCompany_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ArticleCompany" EntitySet="ArticleCompany" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuildWebSites_Languages" Association="Self.FK_BuildWebSites_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="BuildWebSites" EntitySet="BuildWebSites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactUs_Languages" Association="Self.FK_ContactUs_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ContactUs" EntitySet="ContactUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreativPeople_Languages" Association="Self.FK_CreativPeople_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="CreativPeople" EntitySet="CreativPeople" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Languages" Association="Self.FK_Departments_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepCardPhotos_DepCards1" Association="Self.FK_DepCardPhotos_DepCards1">
+      <End Role="DepCards" EntitySet="DepCards" />
+      <End Role="DepCardPhotos" EntitySet="DepCardPhotos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepCards_Departments" Association="Self.FK_DepCards_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="DepCards" EntitySet="DepCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HonorNumbers_Languages" Association="Self.FK_HonorNumbers_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="HonorNumbers" EntitySet="HonorNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NewProject_Languages" Association="Self.FK_NewProject_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="NewProject" EntitySet="NewProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_People_Sections" Association="Self.FK_People_Sections">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="People" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_Sections" Association="Self.FK_Photos_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provide_Languages" Association="Self.FK_Provide_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Provide" EntitySet="Provide" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicePage_Languages" Association="Self.FK_ServicePage_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ServicePage" EntitySet="ServicePage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Settings_Languages" Association="Self.FK_Settings_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Settings" EntitySet="Settings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Languages" Association="Self.FK_Team_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Titles_Languages" Association="Self.FK_Titles_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Titles" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Titles_Sections" Association="Self.FK_Titles_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Titles" EntitySet="Titles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

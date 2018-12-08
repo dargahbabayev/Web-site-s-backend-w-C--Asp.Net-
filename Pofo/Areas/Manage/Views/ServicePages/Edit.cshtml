@@ -1,0 +1,82 @@
+﻿@model Pofo.Models.ServicePage
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+<div class="col-lg-12">
+    <h1 class="page-header">Edit Service Page</h1>
+</div>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+
+        @using (Html.BeginForm("create", "servicepages", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainSlogan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MainSlogan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MainSlogan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OverviewTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OverviewTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OverviewTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OverviewVideo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OverviewVideo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OverviewVideo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OverViewBgPic, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="image" src="~/Uploads/@Model.OverViewBgPic" width="100" />
+                    @Html.EditorFor(model => model.OverViewBgPic, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                    @Html.ValidationMessageFor(model => model.OverViewBgPic, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LangId, "LangId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("LangId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LangId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+</div>

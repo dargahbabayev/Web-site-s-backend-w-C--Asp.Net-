@@ -1,0 +1,78 @@
+﻿@model Pofo.Models.People
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Details People</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div>
+            <h4>People</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Photo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Photo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fullname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Fullname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Work)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Work)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Position)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Position)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Text)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Text)
+                </dd>
+
+             
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Languages.LangName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Languages.LangName)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
