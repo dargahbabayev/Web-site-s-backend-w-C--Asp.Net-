@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <h1 class="page-header">Department's Cards</h1>
     </div>
-    <!-- /.col-lg-12 -->
+
 </div>
 <div class="row">
     <div class="col-lg-12">
@@ -29,7 +29,7 @@
                     @Html.DisplayNameFor(model => model.Text)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departments.DepName)
+                  Department
                 </th>
                 <th></th>
             </tr>
@@ -44,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Text)
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Departments.DepName)

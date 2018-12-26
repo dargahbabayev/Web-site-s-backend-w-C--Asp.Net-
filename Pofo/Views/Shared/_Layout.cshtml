@@ -57,7 +57,7 @@
                 <div class="row">
                     <!-- start logo -->
                     <div class="col-md-2 col-xs-5">
-                        <a href="index.html" title="Pofo" class="logo"><img src="images/logo.png" data-rjs="images/logo@2x.png" class="logo-dark" alt="Pofo"><img src="../Public/images/@ViewBag.Settings.SecondLogo" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light default"></a>
+                        <a href="index.html" title="Pofo" class="logo"><img src="~/Public/images/logo.png" data-rjs="images/logo@2x.png" class="logo-dark" alt="Pofo"><img src="../Public/images/@ViewBag.Settings.SecondLogo" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light default"></a>
                     </div>
                     <!-- end logo -->
                     <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
@@ -69,22 +69,22 @@
                         </button>
                         <div class="navbar-collapse collapse pull-right" id="navbar-collapse-toggle-1">
                             <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
-                                <!-- start menu item -->
-                                <li class="dropdown megamenu-fw">
-                                    <a href="javascript:void(0);">Home</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
-                                    <!-- start sub menu -->
 
+                                <li class="dropdown megamenu-fw">
+                                    <a href="@Url.Action("index","main")">Home</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
                                 </li>
-                                <!-- end menu item -->
 
-                                <li class="dropdown megamenu-fw">
-                                    <a href="javascript:void(0);">Portfolio</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                <li class="dropdown simple-dropdown">
+                                    <a href="@Url.Action("index","blogpage")" title="Blog">Blog</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
 
                                 </li>
                                 <li class="dropdown simple-dropdown">
-                                    <a href="javascript:void(0);" title="Blog">Blog</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
-
+                                    <a href="@Url.Action("index","contactus")" title="Blog">Contact US</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
                                 </li>
+                                <li class="dropdown simple-dropdown">
+                                    <a href="@Url.Action("index","home" ,new { area=""})" title="Blog">About US</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                </li>
+
 
 
                             </ul>
@@ -149,7 +149,7 @@
                 @foreach (var introPhoto in ViewBag.IntroPhotos)
                 {
                     <!-- start slider item -->
-                    <div class="swiper-slide cover-background one-third-screen" style="background-image:url('Public/images/@introPhoto.PhotoName');"></div>
+                    <div class="swiper-slide cover-background one-third-screen" style="background-image:url('/Uploads/@introPhoto.PhotoName');"></div>
                 }
 
 
@@ -195,7 +195,6 @@
                                         @if (ViewBag.Settings.Twitter != null)
                                         {
                                             <a class="twitter text-white" href="@ViewBag.Settings.Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-
 
                                         }
                                     </li>
@@ -253,7 +252,7 @@
                     <!-- start newsletter -->
                     <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-30px-bottom xs-text-center">
                         @*<div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">Subscribe Newsletter</div>
-                        <p class="text-small width-90 xs-width-100">@ViewBag.Settings.SubscribeText</p>*@
+                            <p class="text-small width-90 xs-width-100">@ViewBag.Settings.SubscribeText</p>*@
                         <form id="subscribenewsletterform" action="javascript:void(0)" method="post">
                             <div class="position-relative newsletter width-95">
                                 <div id="success-subscribe-newsletter" class="no-margin-lr"></div>

@@ -12,23 +12,28 @@ namespace Pofo.Controllers
 {
     public class MessagesController : Controller
     {
+
         private PofoDbEntities db = new PofoDbEntities();
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddContact(Message message)
+        public ActionResult AddContact([Bind(Include = "Id,Name,Email,Subject,Status,ContentMessage")]Message message)
         {
             if (message.Name == null || message.Email == null || message.Subject == null)
             {
                 Session["ContactError"] = true;
                 return RedirectToAction("index");
             }
-            message.Date = DateTime.Now;
-            message.Status = false;
+            if (ModelState.IsValid)
+            {
+                message.Date = DateTime.Now;
+                message.Status = false;
 
-            db.Message.Add(message);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                db.Message.Add(message);
+                db.SaveChanges();
+               
+            }
 
+            return RedirectToAction("Index", "ContactUs");
         }
 
         // For Admin panel messages
@@ -37,10 +42,9 @@ namespace Pofo.Controllers
 
             return View(db.Message.ToList());
         }
- 
+
         public ActionResult Details(int? id)
         {
-            bool a = false;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -50,16 +54,12 @@ namespace Pofo.Controllers
             {
                 return HttpNotFound();
             }
-
-
-            if (a == false)
-            {
-                message.Status = true;
-            }
+            db.Entry(message).State = EntityState.Modified;
+            message.Status = true;
             db.SaveChanges();
             return View(message);
         }
-        
+
         // GET: Messages/Delete/5
         public ActionResult Delete(int? id)
         {

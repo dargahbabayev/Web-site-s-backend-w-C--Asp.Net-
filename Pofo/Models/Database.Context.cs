@@ -27,11 +27,9 @@ namespace Pofo.Models
     
         public virtual DbSet<ArticleCompany> ArticleCompany { get; set; }
         public virtual DbSet<HonorNumbers> HonorNumbers { get; set; }
-        public virtual DbSet<InstaPosts> InstaPosts { get; set; }
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Photos> Photos { get; set; }
-        public virtual DbSet<Sections> Sections { get; set; }
         public virtual DbSet<Agency> Agency { get; set; }
         public virtual DbSet<People> People { get; set; }
         public virtual DbSet<CreativPeople> CreativPeople { get; set; }
@@ -48,5 +46,18 @@ namespace Pofo.Models
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<ContactUs> ContactUs { get; set; }
         public virtual DbSet<NewProject> NewProject { get; set; }
+        public virtual DbSet<ContactInfos> ContactInfos { get; set; }
+        public virtual DbSet<BoxedMetroPage> BoxedMetroPage { get; set; }
+        public virtual DbSet<BloggCategories> BloggCategories { get; set; }
+        public virtual DbSet<BlogPhotos> BlogPhotos { get; set; }
+        public virtual DbSet<BlogPage> BlogPage { get; set; }
+        public virtual DbSet<Sections> Sections { get; set; }
+        public virtual DbSet<Comments> Comments { get; set; }
+        public virtual DbSet<AboutManage> AboutManage { get; set; }
+        public virtual DbSet<BlogTags> BlogTags { get; set; }
+        public virtual DbSet<SingleBlog> SingleBlog { get; set; }
+        public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<InstaPosts> InstaPosts { get; set; }
+        public virtual DbSet<MainPageSlider> MainPageSlider { get; set; }
     }
 }

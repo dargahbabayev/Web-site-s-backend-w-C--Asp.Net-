@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 /* ----------------------------------
 
@@ -3669,7 +3669,58 @@ aside .latest-post li figure {width: 75px;}
 .instagram-follow-api li figure:hover a .insta-counts{bottom: 0;}
 .instagram-follow-api li figure a .insta-counts i {margin-right: 5px; margin-left: 5px; vertical-align: middle;}
 .instagram-follow-api li figure span {vertical-align: middle;}
+/*__________________________________--*/
+.instagram-follow-apo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+}
 
+.instagram-follow-apo li {
+    padding: 0 10px 10px 0;
+    width: 33.333%;
+    box-sizing: border-box;
+    display: inline-block
+}
+
+    .instagram-follow-apo li img {
+        width: 100%
+    }
+
+    .instagram-follow-apo li figure {
+        position: relative;
+        overflow: hidden
+    }
+
+        .instagram-follow-apo li figure a .insta-counts {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            text-align: center;
+            background: rgba(35,35,35,0.8);
+            color: #fff;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        .instagram-follow-apo li figure:hover a .insta-counts {
+            bottom: 0;
+        }
+
+        .instagram-follow-apo li figure a .insta-counts i {
+            margin-right: 5px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .instagram-follow-apo li figure span {
+            vertical-align: middle;
+        }
+/*______________________________________*/
 /*instagram feed style 1*/
 .instafeed-style1{ margin-bottom: 30px; overflow: hidden;}
 .instafeed-style1 .insta-image {width: 100%;}

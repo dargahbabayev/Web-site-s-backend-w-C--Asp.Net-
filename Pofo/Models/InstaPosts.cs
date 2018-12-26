@@ -17,6 +17,5 @@ namespace Pofo.Models
         public int Id { get; set; }
         public string Photo { get; set; }
         public string Link { get; set; }
-        public Nullable<int> ViewCount { get; set; }
     }
 }

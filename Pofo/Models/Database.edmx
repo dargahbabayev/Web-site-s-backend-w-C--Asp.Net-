@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PofoDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutManage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="455" />
+          <Property Name="Text" Type="nvarchar" MaxLength="200" />
+          <Property Name="LangId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="AboutPage">
           <Key>
             <PropertyRef Name="Id" />
@@ -40,6 +50,46 @@
           <Property Name="Text" Type="nvarchar" MaxLength="250" />
           <Property Name="LangId" Type="int" />
         </EntityType>
+        <EntityType Name="BloggCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LangId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MainSlogan" Type="nvarchar" MaxLength="350" />
+          <Property Name="LangId" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="350" />
+          <Property Name="SingleBlogId" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogTags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="SingleBlogId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoxedMetroPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MainSlogan" Type="nvarchar" MaxLength="450" />
+          <Property Name="LangId" Type="int" />
+        </EntityType>
         <EntityType Name="BuildWebSites">
           <Key>
             <PropertyRef Name="Id" />
@@ -49,6 +99,27 @@
           <Property Name="Title" Type="nvarchar" MaxLength="350" />
           <Property Name="Text" Type="nvarchar" MaxLength="350" />
           <Property Name="LangId" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="70" />
+          <Property Name="Email" Type="nvarchar" MaxLength="70" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Content" Type="nvarchar" MaxLength="800" />
+          <Property Name="SingleBlogId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactInfos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="450" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="ContactUs">
           <Key>
@@ -114,7 +185,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Photo" Type="nvarchar" MaxLength="500" />
           <Property Name="Link" Type="nvarchar" MaxLength="500" />
-          <Property Name="ViewCount" Type="int" />
         </EntityType>
         <EntityType Name="Languages">
           <Key>
@@ -122,6 +192,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LangName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MainPageSlider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Text" Type="nvarchar" MaxLength="550" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="550" />
+          <Property Name="LangId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -208,6 +288,28 @@
           <Property Name="AboutAgaency" Type="nvarchar" MaxLength="500" />
           <Property Name="LangId" Type="int" />
         </EntityType>
+        <EntityType Name="SingleBlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="450" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Text" Type="ntext" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="IntroPhoto" Type="nvarchar" MaxLength="350" />
+          <Property Name="BlockVoteText" Type="nvarchar" MaxLength="1000" />
+          <Property Name="BlockVoteAutHor" Type="nvarchar" MaxLength="150" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="450" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="450" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="450" />
+          <Property Name="CenterPhoto" Type="nvarchar" MaxLength="350" />
+          <Property Name="LeftPhoto" Type="nvarchar" MaxLength="350" />
+          <Property Name="LangId" Type="int" />
+          <Property Name="AfterCenterPhotoText" Type="ntext" />
+          <Property Name="LeftPhotoText" Type="ntext" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -217,6 +319,14 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LangId" Type="int" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -239,6 +349,18 @@
           <Property Name="LangId" Type="int" />
           <Property Name="SecId" Type="int" />
         </EntityType>
+        <Association Name="FK_AboutManage_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="AboutManage" Type="Self.AboutManage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AboutManage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AboutPage_Languages">
           <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
           <End Role="AboutPage" Type="Self.AboutPage" Multiplicity="*" />
@@ -275,6 +397,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BloggCategories_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="BloggCategories" Type="Self.BloggCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloggCategories">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPage_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="BlogPage" Type="Self.BlogPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogPage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPhotos_SingleBlog">
+          <End Role="SingleBlog" Type="Self.SingleBlog" Multiplicity="0..1" />
+          <End Role="BlogPhotos" Type="Self.BlogPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogPhotos">
+              <PropertyRef Name="SingleBlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogTags_SingleBlog">
+          <End Role="SingleBlog" Type="Self.SingleBlog" Multiplicity="1" />
+          <End Role="BlogTags" Type="Self.BlogTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTags">
+              <PropertyRef Name="SingleBlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogTags_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="BlogTags" Type="Self.BlogTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTags">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoxedMetroPage_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="BoxedMetroPage" Type="Self.BoxedMetroPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BoxedMetroPage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BuildWebSites_Languages">
           <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
           <End Role="BuildWebSites" Type="Self.BuildWebSites" Multiplicity="*" />
@@ -284,6 +478,18 @@
             </Principal>
             <Dependent Role="BuildWebSites">
               <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_SingleBlog">
+          <End Role="SingleBlog" Type="Self.SingleBlog" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="SingleBlogId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -355,6 +561,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="HonorNumbers">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainPageSlider_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="MainPageSlider" Type="Self.MainPageSlider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MainPageSlider">
               <PropertyRef Name="LangId" />
             </Dependent>
           </ReferentialConstraint>
@@ -431,6 +649,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SingleBlog_BloggCategories">
+          <End Role="BloggCategories" Type="Self.BloggCategories" Multiplicity="0..1" />
+          <End Role="SingleBlog" Type="Self.SingleBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloggCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SingleBlog">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SingleBlog_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="SingleBlog" Type="Self.SingleBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SingleBlog">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tags_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Team_Languages">
           <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
           <End Role="Team" Type="Self.Team" Multiplicity="*" />
@@ -468,10 +722,18 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PofoDbModelStoreContainer">
+          <EntitySet Name="AboutManage" EntityType="Self.AboutManage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AboutPage" EntityType="Self.AboutPage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Agency" EntityType="Self.Agency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleCompany" EntityType="Self.ArticleCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BloggCategories" EntityType="Self.BloggCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogPage" EntityType="Self.BlogPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogPhotos" EntityType="Self.BlogPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogTags" EntityType="Self.BlogTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoxedMetroPage" EntityType="Self.BoxedMetroPage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BuildWebSites" EntityType="Self.BuildWebSites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInfos" EntityType="Self.ContactInfos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CreativPeople" EntityType="Self.CreativPeople" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
@@ -480,6 +742,7 @@
           <EntitySet Name="HonorNumbers" EntityType="Self.HonorNumbers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstaPosts" EntityType="Self.InstaPosts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainPageSlider" EntityType="Self.MainPageSlider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewProject" EntityType="Self.NewProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
@@ -488,9 +751,15 @@
           <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicePage" EntityType="Self.ServicePage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SingleBlog" EntityType="Self.SingleBlog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AboutManage_Languages" Association="Self.FK_AboutManage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AboutManage" EntitySet="AboutManage" />
+          </AssociationSet>
           <AssociationSet Name="FK_AboutPage_Languages" Association="Self.FK_AboutPage_Languages">
             <End Role="Languages" EntitySet="Languages" />
             <End Role="AboutPage" EntitySet="AboutPage" />
@@ -503,9 +772,37 @@
             <End Role="Languages" EntitySet="Languages" />
             <End Role="ArticleCompany" EntitySet="ArticleCompany" />
           </AssociationSet>
+          <AssociationSet Name="FK_BloggCategories_Languages" Association="Self.FK_BloggCategories_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BloggCategories" EntitySet="BloggCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPage_Languages" Association="Self.FK_BlogPage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BlogPage" EntitySet="BlogPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPhotos_SingleBlog" Association="Self.FK_BlogPhotos_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="BlogPhotos" EntitySet="BlogPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogTags_SingleBlog" Association="Self.FK_BlogTags_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogTags_Tags" Association="Self.FK_BlogTags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoxedMetroPage_Languages" Association="Self.FK_BoxedMetroPage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BoxedMetroPage" EntitySet="BoxedMetroPage" />
+          </AssociationSet>
           <AssociationSet Name="FK_BuildWebSites_Languages" Association="Self.FK_BuildWebSites_Languages">
             <End Role="Languages" EntitySet="Languages" />
             <End Role="BuildWebSites" EntitySet="BuildWebSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_SingleBlog" Association="Self.FK_Comments_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
           <AssociationSet Name="FK_ContactUs_Languages" Association="Self.FK_ContactUs_Languages">
             <End Role="Languages" EntitySet="Languages" />
@@ -531,6 +828,10 @@
             <End Role="Languages" EntitySet="Languages" />
             <End Role="HonorNumbers" EntitySet="HonorNumbers" />
           </AssociationSet>
+          <AssociationSet Name="FK_MainPageSlider_Languages" Association="Self.FK_MainPageSlider_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="MainPageSlider" EntitySet="MainPageSlider" />
+          </AssociationSet>
           <AssociationSet Name="FK_NewProject_Languages" Association="Self.FK_NewProject_Languages">
             <End Role="Languages" EntitySet="Languages" />
             <End Role="NewProject" EntitySet="NewProject" />
@@ -554,6 +855,18 @@
           <AssociationSet Name="FK_Settings_Languages" Association="Self.FK_Settings_Languages">
             <End Role="Languages" EntitySet="Languages" />
             <End Role="Settings" EntitySet="Settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SingleBlog_BloggCategories" Association="Self.FK_SingleBlog_BloggCategories">
+            <End Role="BloggCategories" EntitySet="BloggCategories" />
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SingleBlog_Languages" Association="Self.FK_SingleBlog_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tags_Languages" Association="Self.FK_Tags_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Tags" EntitySet="Tags" />
           </AssociationSet>
           <AssociationSet Name="FK_Team_Languages" Association="Self.FK_Team_Languages">
             <End Role="Languages" EntitySet="Languages" />
@@ -593,15 +906,6 @@
           <Property Name="LangId" Type="Int32" />
           <NavigationProperty Name="Languages" Relationship="Self.FK_HonorNumbers_Languages" FromRole="HonorNumbers" ToRole="Languages" />
         </EntityType>
-        <EntityType Name="InstaPosts">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ViewCount" Type="Int32" />
-        </EntityType>
         <EntityType Name="Languages">
           <Key>
             <PropertyRef Name="Id" />
@@ -623,6 +927,13 @@
           <NavigationProperty Name="Settings" Relationship="PofoDbModel.FK_Settings_Languages" FromRole="Languages" ToRole="Settings" />
           <NavigationProperty Name="ContactUs" Relationship="PofoDbModel.FK_ContactUs_Languages" FromRole="Languages" ToRole="ContactUs" />
           <NavigationProperty Name="NewProject" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="Languages" ToRole="NewProject" />
+          <NavigationProperty Name="BoxedMetroPage" Relationship="PofoDbModel.FK_BoxedMetroPage_Languages" FromRole="Languages" ToRole="BoxedMetroPage" />
+          <NavigationProperty Name="BloggCategories" Relationship="PofoDbModel.FK_BloggCategories_Languages" FromRole="Languages" ToRole="BloggCategories" />
+          <NavigationProperty Name="BlogPage" Relationship="PofoDbModel.FK_BlogPage_Languages" FromRole="Languages" ToRole="BlogPage" />
+          <NavigationProperty Name="AboutManage" Relationship="PofoDbModel.FK_AboutManage_Languages" FromRole="Languages" ToRole="AboutManage" />
+          <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_SingleBlog_Languages" FromRole="Languages" ToRole="SingleBlog" />
+          <NavigationProperty Name="Tags" Relationship="PofoDbModel.FK_Tags_Languages" FromRole="Languages" ToRole="Tags" />
+          <NavigationProperty Name="MainPageSlider" Relationship="PofoDbModel.FK_MainPageSlider_Languages" FromRole="Languages" ToRole="MainPageSlider" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -661,7 +972,6 @@
         <EntityContainer Name="PofoDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ArticleCompany" EntityType="Self.ArticleCompany" />
           <EntitySet Name="HonorNumbers" EntityType="Self.HonorNumbers" />
-          <EntitySet Name="InstaPosts" EntityType="Self.InstaPosts" />
           <EntitySet Name="Languages" EntityType="Self.Languages" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_ArticleCompany_Languages" Association="Self.FK_ArticleCompany_Languages">
@@ -673,11 +983,6 @@
             <End Role="HonorNumbers" EntitySet="HonorNumbers" />
           </AssociationSet>
           <EntitySet Name="Photos" EntityType="PofoDbModel.Photos" />
-          <EntitySet Name="Sections" EntityType="PofoDbModel.Sections" />
-          <AssociationSet Name="FK_Photos_Sections" Association="PofoDbModel.FK_Photos_Sections">
-            <End Role="Sections" EntitySet="Sections" />
-            <End Role="Photos" EntitySet="Photos" />
-          </AssociationSet>
           <EntitySet Name="Agency" EntityType="PofoDbModel.Agency" />
           <AssociationSet Name="FK_Agency_Languages" Association="PofoDbModel.FK_Agency_Languages">
             <End Role="Languages" EntitySet="Languages" />
@@ -733,10 +1038,6 @@
             <End Role="Languages" EntitySet="Languages" />
             <End Role="Titles" EntitySet="Titles" />
           </AssociationSet>
-          <AssociationSet Name="FK_Titles_Sections" Association="PofoDbModel.FK_Titles_Sections">
-            <End Role="Sections" EntitySet="Sections" />
-            <End Role="Titles" EntitySet="Titles" />
-          </AssociationSet>
           <EntitySet Name="Team" EntityType="PofoDbModel.Team" />
           <AssociationSet Name="FK_Team_Languages" Association="PofoDbModel.FK_Team_Languages">
             <End Role="Languages" EntitySet="Languages" />
@@ -758,6 +1059,75 @@
             <End Role="Languages" EntitySet="Languages" />
             <End Role="NewProject" EntitySet="NewProject" />
           </AssociationSet>
+          <EntitySet Name="ContactInfos" EntityType="PofoDbModel.ContactInfos" />
+          <EntitySet Name="BoxedMetroPage" EntityType="PofoDbModel.BoxedMetroPage" />
+          <AssociationSet Name="FK_BoxedMetroPage_Languages" Association="PofoDbModel.FK_BoxedMetroPage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BoxedMetroPage" EntitySet="BoxedMetroPage" />
+          </AssociationSet>
+          <EntitySet Name="BloggCategories" EntityType="PofoDbModel.BloggCategories" />
+          <EntitySet Name="BlogPhotos" EntityType="PofoDbModel.BlogPhotos" />
+          <AssociationSet Name="FK_BloggCategories_Languages" Association="PofoDbModel.FK_BloggCategories_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BloggCategories" EntitySet="BloggCategories" />
+          </AssociationSet>
+          <EntitySet Name="BlogPage" EntityType="PofoDbModel.BlogPage" />
+          <AssociationSet Name="FK_BlogPage_Languages" Association="PofoDbModel.FK_BlogPage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="BlogPage" EntitySet="BlogPage" />
+          </AssociationSet>
+          <EntitySet Name="Sections" EntityType="PofoDbModel.Sections" />
+          <AssociationSet Name="FK_Photos_Sections" Association="PofoDbModel.FK_Photos_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Titles_Sections" Association="PofoDbModel.FK_Titles_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Titles" EntitySet="Titles" />
+          </AssociationSet>
+          <EntitySet Name="Comments" EntityType="PofoDbModel.Comments" />
+          <EntitySet Name="AboutManage" EntityType="PofoDbModel.AboutManage" />
+          <AssociationSet Name="FK_AboutManage_Languages" Association="PofoDbModel.FK_AboutManage_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AboutManage" EntitySet="AboutManage" />
+          </AssociationSet>
+          <EntitySet Name="BlogTags" EntityType="PofoDbModel.BlogTags" />
+          <EntitySet Name="SingleBlog" EntityType="PofoDbModel.SingleBlog" />
+          <EntitySet Name="Tags" EntityType="PofoDbModel.Tags" />
+          <AssociationSet Name="FK_SingleBlog_BloggCategories" Association="PofoDbModel.FK_SingleBlog_BloggCategories">
+            <End Role="BloggCategories" EntitySet="BloggCategories" />
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPhotos_SingleBlog" Association="PofoDbModel.FK_BlogPhotos_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="BlogPhotos" EntitySet="BlogPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogTags_SingleBlog" Association="PofoDbModel.FK_BlogTags_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogTags_Tags" Association="PofoDbModel.FK_BlogTags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_SingleBlog" Association="PofoDbModel.FK_Comments_SingleBlog">
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SingleBlog_Languages" Association="PofoDbModel.FK_SingleBlog_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="SingleBlog" EntitySet="SingleBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tags_Languages" Association="PofoDbModel.FK_Tags_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <EntitySet Name="InstaPosts" EntityType="PofoDbModel.InstaPosts" />
+          <EntitySet Name="MainPageSlider" EntityType="PofoDbModel.MainPageSlider" />
+          <AssociationSet Name="FK_MainPageSlider_Languages" Association="PofoDbModel.FK_MainPageSlider_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="MainPageSlider" EntitySet="MainPageSlider" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Photos">
           <Key>
@@ -768,27 +1138,6 @@
           <Property Name="SectionId" Type="Int32" />
           <NavigationProperty Name="Sections" Relationship="PofoDbModel.FK_Photos_Sections" FromRole="Photos" ToRole="Sections" />
         </EntityType>
-        <EntityType Name="Sections">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Photos" Relationship="PofoDbModel.FK_Photos_Sections" FromRole="Sections" ToRole="Photos" />
-          <NavigationProperty Name="Titles" Relationship="PofoDbModel.FK_Titles_Sections" FromRole="Sections" ToRole="Titles" />
-        </EntityType>
-        <Association Name="FK_Photos_Sections">
-          <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
-          <End Type="PofoDbModel.Photos" Role="Photos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sections">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Photos">
-              <PropertyRef Name="SectionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Agency">
           <Key>
             <PropertyRef Name="Id" />
@@ -1054,18 +1403,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Titles_Sections">
-          <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
-          <End Type="PofoDbModel.Titles" Role="Titles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sections">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Titles">
-              <PropertyRef Name="SecId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="Id" />
@@ -1173,6 +1510,319 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ContactInfos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BoxedMetroPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MainSlogan" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_BoxedMetroPage_Languages" FromRole="BoxedMetroPage" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK_BoxedMetroPage_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+          <End Type="PofoDbModel.BoxedMetroPage" Role="BoxedMetroPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BoxedMetroPage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BloggCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_BloggCategories_Languages" FromRole="BloggCategories" ToRole="Languages" />
+          <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_SingleBlog_BloggCategories" FromRole="BloggCategories" ToRole="SingleBlog" />
+        </EntityType>
+        <EntityType Name="BlogPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="SingleBlogId" Type="Int32" />
+          <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_BlogPhotos_SingleBlog" FromRole="BlogPhotos" ToRole="SingleBlog" />
+        </EntityType>
+        <Association Name="FK_BloggCategories_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="1" />
+          <End Type="PofoDbModel.BloggCategories" Role="BloggCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloggCategories">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BlogPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MainSlogan" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_BlogPage_Languages" FromRole="BlogPage" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK_BlogPage_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+          <End Type="PofoDbModel.BlogPage" Role="BlogPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogPage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Photos" Relationship="PofoDbModel.FK_Photos_Sections" FromRole="Sections" ToRole="Photos" />
+          <NavigationProperty Name="Titles" Relationship="PofoDbModel.FK_Titles_Sections" FromRole="Sections" ToRole="Titles" />
+        </EntityType>
+        <Association Name="FK_Photos_Sections">
+          <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
+          <End Type="PofoDbModel.Photos" Role="Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="SectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Titles_Sections">
+          <End Type="PofoDbModel.Sections" Role="Sections" Multiplicity="0..1" />
+          <End Type="PofoDbModel.Titles" Role="Titles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Titles">
+              <PropertyRef Name="SecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Content" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="SingleBlogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_Comments_SingleBlog" FromRole="Comments" ToRole="SingleBlog" />
+        </EntityType>
+        <EntityType Name="AboutManage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="455" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_AboutManage_Languages" FromRole="AboutManage" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK_AboutManage_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="1" />
+          <End Type="PofoDbModel.AboutManage" Role="AboutManage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AboutManage">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BlogTags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagId" Type="Int32" Nullable="false" />
+          <Property Name="SingleBlogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_BlogTags_SingleBlog" FromRole="BlogTags" ToRole="SingleBlog" />
+          <NavigationProperty Name="Tags" Relationship="PofoDbModel.FK_BlogTags_Tags" FromRole="BlogTags" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="SingleBlog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="IntroPhoto" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="BlockVoteText" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="BlockVoteAutHor" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Facebook" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="CenterPhoto" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="LeftPhoto" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" />
+          <Property Name="AfterCenterPhotoText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LeftPhotoText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BloggCategories" Relationship="PofoDbModel.FK_SingleBlog_BloggCategories" FromRole="SingleBlog" ToRole="BloggCategories" />
+          <NavigationProperty Name="BlogPhotos" Relationship="PofoDbModel.FK_BlogPhotos_SingleBlog" FromRole="SingleBlog" ToRole="BlogPhotos" />
+          <NavigationProperty Name="BlogTags" Relationship="PofoDbModel.FK_BlogTags_SingleBlog" FromRole="SingleBlog" ToRole="BlogTags" />
+          <NavigationProperty Name="Comments" Relationship="PofoDbModel.FK_Comments_SingleBlog" FromRole="SingleBlog" ToRole="Comments" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_SingleBlog_Languages" FromRole="SingleBlog" ToRole="Languages" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LangId" Type="Int32" />
+          <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogTags" Relationship="PofoDbModel.FK_BlogTags_Tags" FromRole="Tags" ToRole="BlogTags" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Tags_Languages" FromRole="Tags" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK_SingleBlog_BloggCategories">
+          <End Type="PofoDbModel.BloggCategories" Role="BloggCategories" Multiplicity="0..1" />
+          <End Type="PofoDbModel.SingleBlog" Role="SingleBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloggCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SingleBlog">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPhotos_SingleBlog">
+          <End Type="PofoDbModel.SingleBlog" Role="SingleBlog" Multiplicity="0..1" />
+          <End Type="PofoDbModel.BlogPhotos" Role="BlogPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogPhotos">
+              <PropertyRef Name="SingleBlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogTags_SingleBlog">
+          <End Type="PofoDbModel.SingleBlog" Role="SingleBlog" Multiplicity="1" />
+          <End Type="PofoDbModel.BlogTags" Role="BlogTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTags">
+              <PropertyRef Name="SingleBlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogTags_Tags">
+          <End Type="PofoDbModel.Tags" Role="Tags" Multiplicity="1" />
+          <End Type="PofoDbModel.BlogTags" Role="BlogTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTags">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_SingleBlog">
+          <End Type="PofoDbModel.SingleBlog" Role="SingleBlog" Multiplicity="1" />
+          <End Type="PofoDbModel.Comments" Role="Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SingleBlog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="SingleBlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SingleBlog_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+          <End Type="PofoDbModel.SingleBlog" Role="SingleBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SingleBlog">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tags_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+          <End Type="PofoDbModel.Tags" Role="Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="InstaPosts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MainPageSlider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="LangId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_MainPageSlider_Languages" FromRole="MainPageSlider" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK_MainPageSlider_Languages">
+          <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="1" />
+          <End Type="PofoDbModel.MainPageSlider" Role="MainPageSlider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MainPageSlider">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1200,16 +1850,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InstaPosts">
-            <EntityTypeMapping TypeName="PofoDbModel.InstaPosts">
-              <MappingFragment StoreEntitySet="InstaPosts">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Languages">
             <EntityTypeMapping TypeName="PofoDbModel.Languages">
               <MappingFragment StoreEntitySet="Languages">
@@ -1234,14 +1874,6 @@
               <MappingFragment StoreEntitySet="Photos">
                 <ScalarProperty Name="SectionId" ColumnName="SectionId" />
                 <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sections">
-            <EntityTypeMapping TypeName="PofoDbModel.Sections">
-              <MappingFragment StoreEntitySet="Sections">
-                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1428,6 +2060,145 @@
           <EntitySetMapping Name="NewProject">
             <EntityTypeMapping TypeName="PofoDbModel.NewProject">
               <MappingFragment StoreEntitySet="NewProject">
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInfos">
+            <EntityTypeMapping TypeName="PofoDbModel.ContactInfos">
+              <MappingFragment StoreEntitySet="ContactInfos">
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoxedMetroPage">
+            <EntityTypeMapping TypeName="PofoDbModel.BoxedMetroPage">
+              <MappingFragment StoreEntitySet="BoxedMetroPage">
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="MainSlogan" ColumnName="MainSlogan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BloggCategories">
+            <EntityTypeMapping TypeName="PofoDbModel.BloggCategories">
+              <MappingFragment StoreEntitySet="BloggCategories">
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPhotos">
+            <EntityTypeMapping TypeName="PofoDbModel.BlogPhotos">
+              <MappingFragment StoreEntitySet="BlogPhotos">
+                <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPage">
+            <EntityTypeMapping TypeName="PofoDbModel.BlogPage">
+              <MappingFragment StoreEntitySet="BlogPage">
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="MainSlogan" ColumnName="MainSlogan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="PofoDbModel.Sections">
+              <MappingFragment StoreEntitySet="Sections">
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="PofoDbModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutManage">
+            <EntityTypeMapping TypeName="PofoDbModel.AboutManage">
+              <MappingFragment StoreEntitySet="AboutManage">
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogTags">
+            <EntityTypeMapping TypeName="PofoDbModel.BlogTags">
+              <MappingFragment StoreEntitySet="BlogTags">
+                <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingleBlog">
+            <EntityTypeMapping TypeName="PofoDbModel.SingleBlog">
+              <MappingFragment StoreEntitySet="SingleBlog">
+                <ScalarProperty Name="LeftPhotoText" ColumnName="LeftPhotoText" />
+                <ScalarProperty Name="AfterCenterPhotoText" ColumnName="AfterCenterPhotoText" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="LeftPhoto" ColumnName="LeftPhoto" />
+                <ScalarProperty Name="CenterPhoto" ColumnName="CenterPhoto" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="BlockVoteAutHor" ColumnName="BlockVoteAutHor" />
+                <ScalarProperty Name="BlockVoteText" ColumnName="BlockVoteText" />
+                <ScalarProperty Name="IntroPhoto" ColumnName="IntroPhoto" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="PofoDbModel.Tags">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstaPosts">
+            <EntityTypeMapping TypeName="PofoDbModel.InstaPosts">
+              <MappingFragment StoreEntitySet="InstaPosts">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainPageSlider">
+            <EntityTypeMapping TypeName="PofoDbModel.MainPageSlider">
+              <MappingFragment StoreEntitySet="MainPageSlider">
                 <ScalarProperty Name="LangId" ColumnName="LangId" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Text" ColumnName="Text" />

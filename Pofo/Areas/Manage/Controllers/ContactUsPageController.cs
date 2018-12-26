@@ -20,7 +20,7 @@ namespace Pofo.Areas.Manage.Controllers
             var contactUs = db.ContactUs.Include(c => c.Languages);
             return View(contactUs.ToList());
         }
-
+        
         // GET: Manage/ContactUsPage/Details/5
         public ActionResult Details(int? id)
         {

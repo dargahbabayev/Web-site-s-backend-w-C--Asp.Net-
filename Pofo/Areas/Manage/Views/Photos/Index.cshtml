@@ -5,12 +5,12 @@
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Photos</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.PhotoName)
@@ -24,7 +24,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PhotoName)
+            <input type="image" src="~/Uploads/@item.PhotoName" width="100" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Sections.SectionName)

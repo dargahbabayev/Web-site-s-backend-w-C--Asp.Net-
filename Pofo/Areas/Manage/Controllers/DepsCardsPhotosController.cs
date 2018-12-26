@@ -98,7 +98,7 @@ namespace Pofo.Areas.Manage.Controllers
                     depCardPhotos.PhotoName = filename;
                     DepCardPhotos dcp = db.DepCardPhotos.Find(depCardPhotos.Id);
                     System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), dcp.PhotoName));
-                    db.Entry(dcp).State = EntityState.Deleted;
+                    db.Entry(dcp).State = EntityState.Detached;
                 }
                 db.Entry(depCardPhotos).State = EntityState.Modified;
                 if (PhotoName == null)

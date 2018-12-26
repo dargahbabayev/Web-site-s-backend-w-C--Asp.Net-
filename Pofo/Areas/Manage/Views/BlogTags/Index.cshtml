@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Pofo.Models.BlogTags>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Blog~~Tags</h1>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+
+        <p>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-striped">
+            <tr>
+                <th>
+                Blog's Name
+                </th>
+                <th>
+                  Tag's Name
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SingleBlog.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tags.TagName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</div>

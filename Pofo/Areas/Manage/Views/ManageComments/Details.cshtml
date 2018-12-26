@@ -1,0 +1,68 @@
+﻿@model Pofo.Models.Comments
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Comment's Details</h1>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+
+        <div>
+          
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Content)
+                </dd>
+
+                <dt>
+                  Blog's Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SingleBlog.Title)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+
+</div>

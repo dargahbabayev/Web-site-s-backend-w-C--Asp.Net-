@@ -150,8 +150,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\AboutManageController.cs" />
     <Compile Include="Areas\Manage\Controllers\AboutPagesController.cs" />
     <Compile Include="Areas\Manage\Controllers\AgencyController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BloggCategoriesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogPagesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogPhotosController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogTagsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BoxedMetroManageController.cs" />
     <Compile Include="Areas\Manage\Controllers\ContactUsPageController.cs" />
     <Compile Include="Areas\Manage\Controllers\CreativPeoplesController.cs" />
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
@@ -160,20 +166,32 @@
     <Compile Include="Areas\Manage\Controllers\DepsCardsPhotosController.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manage\Controllers\HonorNumbersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\InstaPostsController.cs" />
     <Compile Include="Areas\Manage\Controllers\LanguagesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\MainPageSlidersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ManageCommentsController.cs" />
     <Compile Include="Areas\Manage\Controllers\NewProjectsController.cs" />
     <Compile Include="Areas\Manage\Controllers\PeopleController.cs" />
     <Compile Include="Areas\Manage\Controllers\PhotosController.cs" />
     <Compile Include="Areas\Manage\Controllers\SectionsController.cs" />
     <Compile Include="Areas\Manage\Controllers\ServicePagesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SingleBlogsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\TagsController.cs" />
     <Compile Include="Areas\Manage\Controllers\TeamController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
+    <Compile Include="Controllers\BlogPageController.cs" />
+    <Compile Include="Controllers\BoxedMetroController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AboutManage.cs">
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutPage.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -184,7 +202,28 @@
     <Compile Include="Models\ArticleCompany.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BloggCategories.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPage.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPhotos.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogTags.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BoxedMetroPage.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BuildWebSites.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comments.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactInfos.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContactUs.cs">
@@ -226,6 +265,9 @@
     <Compile Include="Models\Languages.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MainPageSlider.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Message.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -241,6 +283,7 @@
     <Compile Include="Models\Provide.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Sections.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -250,7 +293,13 @@
     <Compile Include="Models\Settings.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SingleBlog.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tags.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Team.cs">
@@ -1349,6 +1398,20 @@
     <Content Include="Public\js\smooth-scroll.js" />
     <Content Include="Public\js\swiper.min.js" />
     <Content Include="Public\js\wow.min.js" />
+    <Content Include="Public\revolution\assets\coloredbg.png" />
+    <Content Include="Public\revolution\assets\gridtile.png" />
+    <Content Include="Public\revolution\assets\gridtile_3x3.png" />
+    <Content Include="Public\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="Public\revolution\assets\gridtile_white.png" />
+    <Content Include="Public\revolution\assets\loader.gif" />
+    <Content Include="Public\revolution\css\closedhand.html" />
+    <Content Include="Public\revolution\css\layers.css" />
+    <Content Include="Public\revolution\css\navigation.css" />
+    <Content Include="Public\revolution\css\openhand.html" />
+    <Content Include="Public\revolution\css\settings.css" />
+    <Content Include="Public\revolution\fonts\revicons\revicons90c6.svg" />
+    <Content Include="Public\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Public\revolution\js\jquery.themepunch.tools.min.js" />
     <Content Include="Public\video\video.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1367,7 +1430,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\Comments\" />
     <Folder Include="Views\Settings\" />
+    <Folder Include="Views\SingleBlogPage\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Database.edmx">
@@ -1503,6 +1568,58 @@
     <Content Include="Areas\Manage\Views\NewProjects\Details.cshtml" />
     <Content Include="Areas\Manage\Views\NewProjects\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\NewProjects\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BoxedMetroManage\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BoxedMetroManage\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BoxedMetroManage\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BoxedMetroManage\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BoxedMetroManage\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPages\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPages\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPages\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPages\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPages\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BloggCategories\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BloggCategories\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BloggCategories\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BloggCategories\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BloggCategories\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\SingleBlogs\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\SingleBlogs\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\SingleBlogs\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\SingleBlogs\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\SingleBlogs\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPhotos\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPhotos\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPhotos\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPhotos\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogPhotos\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\ManageComments\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\ManageComments\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\ManageComments\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutManage\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutManage\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutManage\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutManage\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Tags\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Tags\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Tags\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Tags\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Tags\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogTags\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogTags\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogTags\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogTags\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogTags\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\InstaPosts\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\InstaPosts\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\InstaPosts\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\InstaPosts\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\InstaPosts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\MainPageSliders\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\MainPageSliders\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\MainPageSliders\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\MainPageSliders\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\MainPageSliders\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\fonts\et-line.eot" />
     <Content Include="Public\fonts\et-line.ttf" />
@@ -1537,6 +1654,14 @@
     <Content Include="Views\Messages\Delete.cshtml" />
     <Content Include="Views\Messages\Details.cshtml" />
     <Content Include="Views\Messages\ShowMessage.cshtml" />
+    <Content Include="Views\BoxedMetro\Index.cshtml" />
+    <Content Include="Views\BlogPage\Index.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\BlogPage\SinglePost.cshtml" />
+    <Content Include="Public\revolution\assets\Thumbs.db" />
+    <Content Include="Public\revolution\fonts\revicons\revicons90c6.eot" />
+    <Content Include="Public\revolution\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="Public\revolution\fonts\revicons\revicons90c6.woff" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

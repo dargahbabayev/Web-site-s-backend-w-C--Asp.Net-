@@ -51,6 +51,15 @@ namespace Pofo.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,PhotoName,SectionId")] Photos photos, HttpPostedFileBase PhotoName)
         {
+
+            if (photos.PhotoName == null)
+            {
+                Session["uploadError"] = "Fill the all boxes";
+                return RedirectToAction("create");
+            }
+
+
+
             if (ModelState.IsValid)
             {
                 string filename = DateTime.Now.ToString("yyMMddHHmmss") + PhotoName.FileName;
@@ -98,7 +107,7 @@ namespace Pofo.Areas.Manage.Controllers
                 photos.PhotoName = filename;
                 Photos ph = db.Photos.Find(photos.Id);
                 System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), ph.PhotoName));
-                db.Entry(photos).State = EntityState.Detached;
+                db.Entry(ph).State = EntityState.Detached;
             }
             if (ModelState.IsValid)
             {

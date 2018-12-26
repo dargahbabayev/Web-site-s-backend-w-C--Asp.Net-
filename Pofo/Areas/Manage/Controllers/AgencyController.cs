@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Pofo.Models;
 using System.IO;
 
+
 namespace Pofo.Areas.Manage.Controllers
 {
     public class AgencyController : Controller
@@ -20,6 +21,38 @@ namespace Pofo.Areas.Manage.Controllers
         {
             var agency = db.Agency.Include(a => a.Languages);
             return View(agency.ToList());
+        }
+        // GET: Manage/bb/Create
+        public ActionResult Create()
+        {
+            ViewBag.LangId = new SelectList(db.Languages, "Id", "LangName");
+            return View();
+        }
+
+        // POST: Manage/bb/Create
+        // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
+        // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Photo,Title,Text,LangId")] Agency agency ,HttpPostedFileBase Photo)
+        {
+
+            if (Photo!=null){
+
+                string filename = DateTime.Now.ToString("yyMMddHHmmss") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), filename);
+                Photo.SaveAs(path);
+                agency.Photo = filename;
+            }
+            if (ModelState.IsValid)
+            {
+                db.Agency.Add(agency);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.LangId = new SelectList(db.Languages, "Id", "LangName", agency.LangId);
+            return View(agency);
         }
 
         // GET: Manage/Agency/Details/5

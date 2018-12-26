@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Web.Mvc;
 
 namespace Pofo.Models
 {
@@ -22,7 +22,16 @@ namespace Pofo.Models
         public List<ServicePage> ServicePage { get; set; }
         public List<Team> Team { get; set; }
         public List<NewProject> NewProjects { get; set; }
-
+        public List<ContactInfos> ContactInfos { get; set; }
+        public List<BoxedMetroPage> BoxedMetroPage { get; set; }
+        public List<AboutManage> AboutManage { get; set; }
+        public List<BlogPage> BlogPage { get; set; }
+        public List<Tags> Tags { get; set; }
+        public List<SingleBlog> SingleBlog { get; set; }
+        public List<BloggCategories> BloggCategories { get; set; }
+        public List<BlogTags> BlogTags { get; set; }
+        public List<InstaPosts> InstaPosts { get; set; }
+        public List<MainPageSlider> MainPageSliders { get; set; }
 
 
 

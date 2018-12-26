@@ -17,7 +17,9 @@
     <link href="~/Areas/Manage/Public/vendor/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="~/Areas/Manage/Public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,13 +38,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               
+
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-              
-              
-               
+
+
+
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -84,7 +86,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-columns"></i>Photos<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-camera"></i>   Photos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="@Url.Action("index" ,"sections")">Sections</a>
@@ -96,7 +98,60 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-columns"></i>About Page<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-pencil"></i>   Blog<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("index" ,"blogpages")">Blog Main Page</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"aboutmanage")">About Admin in Single Blog</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"singleblogs")">Edit Blog(All blogs) </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"blogphotos")">Blog Photos </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"bloggcategories")">Blog's Categories</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"singleblogs")">Create Blog</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"managecomments")">Comments</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"tags")">Create Tag</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index" ,"blogtags")">Blog~~Tags</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-columns"></i>BoxedMetro<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("index" ,"BoxedMetroManage")">MainPage</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i>Instagram's Posts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("index" ,"instaposts")">Instagram's Posts</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-info-circle"></i>About Page<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="@Url.Action("index" ,"AboutPages")">Main Page</a>
@@ -114,6 +169,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
                         <li>
                             <a href="#"><i class="fas fa-home"></i> Departments<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -151,7 +207,7 @@
                                 <li>
                                     <a href="@Url.Action("index" ,"servicepages")">Main Page</a>
                                 </li>
-                            
+
 
                             </ul>
 
@@ -168,7 +224,7 @@
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-         @RenderBody()
+            @RenderBody()
         </div>
         <!-- /#page-wrapper -->
     </div>

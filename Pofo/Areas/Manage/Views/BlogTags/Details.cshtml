@@ -1,0 +1,35 @@
+﻿@model Pofo.Models.BlogTags
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogTags</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SingleBlog.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SingleBlog.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags.TagName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tags.TagName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

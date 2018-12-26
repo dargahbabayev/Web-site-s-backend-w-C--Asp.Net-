@@ -22,16 +22,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InstaPosts">
-      <EntityTypeMapping TypeName="PofoDbModel.InstaPosts">
-        <MappingFragment StoreEntitySet="InstaPosts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Link" ColumnName="Link" />
-          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Languages">
       <EntityTypeMapping TypeName="PofoDbModel.Languages">
         <MappingFragment StoreEntitySet="Languages">
@@ -56,14 +46,6 @@
         <MappingFragment StoreEntitySet="Photos">
           <ScalarProperty Name="SectionId" ColumnName="SectionId" />
           <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Sections">
-      <EntityTypeMapping TypeName="PofoDbModel.Sections">
-        <MappingFragment StoreEntitySet="Sections">
-          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -250,6 +232,145 @@
     <EntitySetMapping Name="NewProject">
       <EntityTypeMapping TypeName="PofoDbModel.NewProject">
         <MappingFragment StoreEntitySet="NewProject">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactInfos">
+      <EntityTypeMapping TypeName="PofoDbModel.ContactInfos">
+        <MappingFragment StoreEntitySet="ContactInfos">
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoxedMetroPage">
+      <EntityTypeMapping TypeName="PofoDbModel.BoxedMetroPage">
+        <MappingFragment StoreEntitySet="BoxedMetroPage">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="MainSlogan" ColumnName="MainSlogan" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloggCategories">
+      <EntityTypeMapping TypeName="PofoDbModel.BloggCategories">
+        <MappingFragment StoreEntitySet="BloggCategories">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPhotos">
+      <EntityTypeMapping TypeName="PofoDbModel.BlogPhotos">
+        <MappingFragment StoreEntitySet="BlogPhotos">
+          <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPage">
+      <EntityTypeMapping TypeName="PofoDbModel.BlogPage">
+        <MappingFragment StoreEntitySet="BlogPage">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="MainSlogan" ColumnName="MainSlogan" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="PofoDbModel.Sections">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="PofoDbModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AboutManage">
+      <EntityTypeMapping TypeName="PofoDbModel.AboutManage">
+        <MappingFragment StoreEntitySet="AboutManage">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogTags">
+      <EntityTypeMapping TypeName="PofoDbModel.BlogTags">
+        <MappingFragment StoreEntitySet="BlogTags">
+          <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SingleBlog">
+      <EntityTypeMapping TypeName="PofoDbModel.SingleBlog">
+        <MappingFragment StoreEntitySet="SingleBlog">
+          <ScalarProperty Name="LeftPhotoText" ColumnName="LeftPhotoText" />
+          <ScalarProperty Name="AfterCenterPhotoText" ColumnName="AfterCenterPhotoText" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="LeftPhoto" ColumnName="LeftPhoto" />
+          <ScalarProperty Name="CenterPhoto" ColumnName="CenterPhoto" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="BlockVoteAutHor" ColumnName="BlockVoteAutHor" />
+          <ScalarProperty Name="BlockVoteText" ColumnName="BlockVoteText" />
+          <ScalarProperty Name="IntroPhoto" ColumnName="IntroPhoto" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="PofoDbModel.Tags">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstaPosts">
+      <EntityTypeMapping TypeName="PofoDbModel.InstaPosts">
+        <MappingFragment StoreEntitySet="InstaPosts">
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainPageSlider">
+      <EntityTypeMapping TypeName="PofoDbModel.MainPageSlider">
+        <MappingFragment StoreEntitySet="MainPageSlider">
           <ScalarProperty Name="LangId" ColumnName="LangId" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Text" ColumnName="Text" />

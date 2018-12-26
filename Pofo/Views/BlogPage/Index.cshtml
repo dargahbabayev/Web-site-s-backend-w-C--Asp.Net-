@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Pofo.Models.ViewHome
+
+<!-- start post content section -->
+<section id="blog" class="wow fadeIn bg-light-gray half-section last-paragraph-no-margin blog-post-style5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 no-padding xs-padding-15px-lr">
+                @if (Session["uploadError"] != null)
+                {
+                    <h1 style="color:red"> @Session["uploadError"]</h1>
+
+                    Session["uploadError"] = null;
+                }
+                <ul class="blog-grid blog-3col gutter-large">
+                    <li class="grid-sizer"></li>
+
+                    @foreach (var Blog in Model.SingleBlog)
+
+                    {
+                        <li class="grid-item wow fadeInUp last-paragraph-no-margin">
+                            <div class="blog-post">
+                                <div class="blog-post-images overflow-hidden">
+                                    <a href="blog-post-layout-01.html">
+                                        <img src="/uploads/@Blog.IntroPhoto" alt="">
+                                    </a>
+                                    <div class="blog-categories bg-white text-uppercase text-extra-small alt-font"><a href="blog-grid.html">@Blog.BloggCategories.CategoryName</a></div>
+                                </div>
+                                <div class="post-details padding-40px-all bg-white sm-padding-20px-all">
+                                    <div class="blog-hover-color"></div>
+                                    <a href="@Url.Action("SinglePost","blogpage" ,new { singlId=Blog.Id})" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">@Blog.Title</a>
+                                    <div class="author">
+                                        <span class="text-medium-gray text-uppercase text-extra-small display-inline-block"> <a href="blog-grid.html" class="text-medium-gray"></a>&nbsp;&nbsp;|&nbsp;&nbsp;@Blog.Date</span>
+                                    </div>
+                                    <div class="separator-line-horrizontal-full bg-medium-gray margin-seven-tb md-margin-four-tb"></div>
+
+                                    <p>@Html.Raw(Blog.Text.Substring(0, 50)) ...</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    };
+
+
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <div class="display-inline-block width-100 margin-45px-bottom xs-margin-25px-bottom">
+
+                    @using (Html.BeginForm("Index", "blogpage", FormMethod.Get))
+                    {
+                        <div class="position-relative">
+                            <input type="text" name="Key" class="bg-transparent text-small no-margin border-color-extra-light-gray medium-input pull-left" placeholder="search">
+                            <button type="submit" class="bg-transparent  btn position-absolute right-0 top-1"><i class="fas fa-search no-margin-left"></i></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- start pagination -->
+        <div class=" text-center margin-100px-top sm-margin-50px-top wow fadeInUp">
+            <div class="pagination text-small text-uppercase text-extra-dark-gray">
+                <ul>
+                    @if (ViewBag.ActivePage - 1 != 0)
+                    {
+                        <li><a href="@Url.Action("index","blogpage",new { page=ViewBag.ActivePage-1})"><i class="fas fa-long-arrow-alt-left margin-5px-right xs-display-none"></i> Prev</a></li>
+                    }
+
+                    @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                    {
+                        <li class="@(i==ViewBag.ActivePage?"active":"")"><a href="@Url.Action("index" ,"blogpage", new { page=i})">@i</a></li>
+
+                    }
+                    @if (ViewBag.ActivePage + 1 < Model.SingleBlog.Count())
+                    {
+                        <li><a href="@Url.Action("index","blogpage",new { page=ViewBag.ActivePage+1})">Next <i class="fas fa-long-arrow-alt-right margin-5px-left xs-display-none"></i></a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+        <!-- end pagination -->
+    </div>
+</section>
+<!-- end post content section -->

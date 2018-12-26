@@ -1,0 +1,647 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@{
+    Layout = null;
+}
+@model Pofo.Models.ViewHome
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- title -->
+    <title>POFO – Creative Agency, Corporate and Portfolio Multi-purpose Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+    <meta name="author" content="ThemeZaa">
+    <!-- description -->
+    <meta name="description" content="POFO is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose agency and portfolio HTML5 template with 25 ready home page demos.">
+    <!-- keywords -->
+    <meta name="keywords" content="creative, modern, clean, bootstrap responsive, html5, css3, portfolio, blog, agency, templates, multipurpose, one page, corporate, start-up, studio, branding, designer, freelancer, carousel, parallax, photography, personal, masonry, grid, coming soon, faq">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/Public/images/favicon.png">
+    <link rel="apple-touch-icon" href="~/Public/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Public/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Public/images/apple-touch-icon-114x114.png">
+    <!-- animation -->
+    <link rel="stylesheet" href="~/Public/css/animate.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="~/Public/css/bootstrap.min.css" />
+    <!-- et line icon -->
+    <link rel="stylesheet" href="~/Public/css/et-line-icons.css" />
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" href="~/Public/css/font-awesome.min.css" />
+    <!-- themify icon -->
+    <link rel="stylesheet" href="~/Public/css/themify-icons.css">
+    <!-- swiper carousel -->
+    <link rel="stylesheet" href="~/Public/css/swiper.min.css">
+    <!-- justified gallery  -->
+    <link rel="stylesheet" href="/Public/css/justified-gallery.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="~/Public/css/magnific-popup.css" />
+    <!-- revolution slider -->
+    <link rel="stylesheet" type="text/css" href="~/Public/revolution/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Public/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/Public/revolution/css/navigation.css">
+    <!-- bootsnav -->
+    <link rel="stylesheet" href="~/Public/css/bootsnav.css">
+    <!-- style -->
+    <link rel="stylesheet" href="~/Public/css/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/Public/css/responsive.css" />
+    <!--[if IE]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- start header -->
+    <header>
+        <!-- start navigation -->
+        <nav class="navbar navbar-default bootsnav bg-white header-light nav-box-width navbar-top">
+            <div class="container-fluid nav-header-container">
+                <div class="row">
+                    <!-- start logo -->
+                    <div class="col-md-2 col-xs-5">
+                        <a href="index.html" title="Pofo" class="logo"><img src="~/public/images/logo.png" data-rjs="~/public/images/logo@2x.png" class="logo-dark default" alt="Pofo"><img src="~public/images/logo-white.png" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
+                    </div>
+                    <!-- end logo -->
+                    <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
+                        <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
+                            <span class="sr-only">toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-collapse collapse pull-right" id="navbar-collapse-toggle-1">
+                            <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
+                                <li class="dropdown megamenu-fw">
+                                    <a href="@Url.Action("index","main")">Home</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                </li>
+
+
+
+                                <li class="dropdown simple-dropdown">
+                                    <a href="@Url.Action("index","blogpage")" title="Blog">Blog</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+
+                                </li>
+                                <li class="dropdown simple-dropdown">
+                                    <a href="@Url.Action("index","contactus")" title="Blog">Contact US</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                </li>
+                                <li class="dropdown simple-dropdown">
+                                    <a href="@Url.Action("index","home" ,new { area=""})" title="Blog">About US</a><i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-xs-5 width-auto">
+                        <div class="header-searchbar">
+                            <a href="#search-header" class="header-search-form text-white"><i class="fas fa-search search-button"></i></a>
+                            <!-- search input-->
+                            <form id="search-header" method="post" action="http://www.themezaa.com/html/pofo/search-result.html" name="search-header" class="mfp-hide search-form-result">
+                                <div class="search-form position-relative">
+                                    <button type="submit" class="fas fa-search close-search search-button"></button>
+                                    <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="header-social-icon xs-display-none">
+                            <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://dribbble.com/" title="Dribbble" target="_blank"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- end navigation -->
+    </header>
+    <!-- end header -->
+    @foreach (var Blog in Model.SingleBlog)
+    {
+        <!-- start page title section -->
+        <section class="wow fadeIn bg-light-gray padding-35px-tb page-title-small top-space">
+            <div class="container">
+                <div class="row equalize xs-equalize-auto">
+                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
+                        <div class="display-table-cell vertical-align-middle text-left xs-text-center">
+                            <!-- start page title -->
+                            <h1 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom text-uppercase">@Blog.Title</h1>
+                            <!-- end page title -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right xs-text-left xs-margin-10px-top">
+                        <div class="display-table-cell vertical-align-middle breadcrumb text-small alt-font">
+                            <!-- start breadcrumb -->
+                            <ul class="xs-text-center text-uppercase">
+                                @if (@Blog.Date != null)
+                                {
+                                    <li><a href="#" class="text-dark-gray">@Blog.Date.Value.ToString("MM/dd/yyyy")</a></li>
+
+                                }
+
+
+                                <li class="text-dark-gray">
+                                    <a href="blog-masonry.html">@Blog.BloggCategories.CategoryName</a>
+                                </li>
+                            </ul>
+                            <!-- end breadcrumb -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end page title section -->
+        <!-- start post content section -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
+                        <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
+                            <div class="blog-post-content margin-45px-bottom xs-margin-30px-bottom xs-text-center">
+                                <div class="lightbox-gallery">
+                                    <ul class="portfolio-grid work-3col hover-option4 gutter-small">
+                                        <li class="grid-sizer"></li>
+                                        <!-- start portfolio item -->
+                                        @foreach (var photo in Blog.BlogPhotos)
+                                        {
+                                            <li class="grid-item web branding design">
+                                                <a href="/public/images/portfolio-item31.jpg" title="Lightbox gallery image title...">
+                                                    <figure>
+                                                        <div class="portfolio-img bg-extra-dark-gray"><img src="/Uploads/@photo.PhotoName" alt="" class="project-img-gallery" /></div>
+                                                        <figcaption>
+                                                            <div class="portfolio-hover-main text-center">
+                                                                <div class="portfolio-hover-box vertical-align-middle">
+                                                                    <div class="portfolio-hover-content position-relative">
+                                                                        <i class="ti-zoom-in text-white fa-2x"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </li>
+                                        }
+
+                                        <!-- end portfolio item -->
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>@Html.Raw(Blog.Text)</p>
+
+                            <blockquote class="border-color-deep-pink">
+                                <p>@Blog.BlockVoteText</p>
+                                <footer>@Blog.BlockVoteAutHor</footer>
+                            </blockquote>
+                            <img src="/uploads/@Blog.CenterPhoto" alt="" class="width-100 margin-45px-bottom">
+                            <!-- dropcaps -->
+                            <p> @Html.Raw(Blog.AfterCenterPhotoText)</p>
+                            <!-- end dropcaps -->
+                            <figure class="wp-caption alignleft"><img alt="" src="~/Uploads/@Blog.LeftPhoto"><figcaption class="wp-caption-text"></figcaption></figure>
+                            <p> @Html.Raw(Blog.LeftPhotoText)</p>
+
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
+                            <div class="divider-full bg-medium-light-gray"></div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 sm-text-center">
+                            <div class="tag-cloud margin-20px-bottom">
+                                <a href="blog-grid.html">Advertisement</a>
+                                <a href="blog-grid.html">Artistry</a>
+                                <a href="blog-grid.html">Blog</a>
+                                <a href="blog-grid.html">Conceptual</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 text-right sm-text-center">
+                            <div class="social-icon-style-6">
+                                <ul class="extra-small-icon">
+                                    <li><a class="likes-count" href="#" target="_blank"><i class="fas fa-heart text-deep-pink"></i><span class="text-small">@Blog.Count</span></a></li>
+                                    @if (Blog.Facebook != null)
+                                    {
+                                        <li><a class="facebook" href="@Blog.Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    }
+                                    @if (Blog.Twitter != null)
+                                    {
+                                        <li><a class="facebook" href="@Blog.Twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    }
+                                    @if (Blog.Instagram != null)
+                                    {
+                                        <li><a class="facebook" href="@Blog.Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-30px-top">
+                            <div class="display-table width-100 border-all border-color-extra-light-gray padding-50px-all sm-padding-30px-all xs-padding-20px-all">
+                                <div class="display-table-cell width-130px text-center vertical-align-top xs-margin-15px-bottom xs-width-100 xs-display-block xs-text-center">
+                                    <img src="images/avtar-01.jpg" class="img-circle width-100px" alt="" />
+                                </div>
+                                <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block xs-text-center">
+                                    <a href="#" class="text-extra-dark-gray text-uppercase alt-font font-weight-600 margin-10px-bottom display-inline-block text-small">Alexander Harvard</a>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                                    <a class="btn btn-very-small btn-black margin-20px-top">All author posts</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+                            <div class="col-md-12 col-sm-12 col-xs-12 margin-lr-auto text-center margin-80px-tb sm-margin-50px-tb xs-margin-30px-tb">
+                                <div class="position-relative overflow-hidden width-100">
+                                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase text-extra-dark-gray">Related Posts</span>
+                                </div>
+                            </div>
+
+                            @if (Model.SingleBlog.Count != 0)
+                            {<!-- start post item -->
+                                foreach (var item in Model.SingleBlog)
+                                {
+                                    <div class="col-md-4 col-sm-6 col-xs-12 last-paragraph-no-margin sm-margin-50px-bottom xs-margin-30px-bottom wow fadeIn">
+                                        <div class="blog-post blog-post-style1 xs-text-center">
+                                            <div class="blog-post-images overflow-hidden margin-25px-bottom sm-margin-20px-bottom">
+                                                <a href="blog-post-layout-01.html">
+                                                    <img src="/uploads/@item.IntroPhoto" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="post-details">
+                                                <span class="post-author text-extra-small text-medium-gray text-uppercase display-block margin-10px-bottom xs-margin-5px-bottom">@item.Date.Value.ToString("MM/dd/yyyy")</span>
+                                                <a href="blog-post-layout-01.html" class="post-title text-medium text-extra-dark-gray width-90 display-block sm-width-100">@item.Title</a>
+                                                <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb sm-margin-15px-tb"></div>
+                                                <p class="width-90 xs-width-100">@Html.Raw(item.Text.Substring(0, 50))</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <!-- end post item -->
+                            }
+
+
+
+
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-eight-top">
+                            <div class="divider-full bg-medium-light-gray"></div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 blog-details-comments">
+                            <div class="width-100 margin-lr-auto text-center margin-80px-tb sm-margin-50px-tb xs-margin-30px-tb">
+                                <div class="position-relative overflow-hidden width-100">
+                                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase text-extra-dark-gray">
+                                        @Blog.Comments.Count() Comments
+                                    </span>
+                                </div>
+                            </div>
+                            <ul class="blog-comment">
+                                @foreach (var comment in Blog.Comments)
+                                {
+                                    <li>
+                                        <div class="display-table width-100">
+                                            <div class="display-table-cell width-100px xs-width-50px text-center vertical-align-top xs-display-block xs-margin-10px-bottom">
+                                                <img src="~/public/images/avtar-02.jpg" class="img-circle width-85 xs-width-100" alt="" />
+                                            </div>
+                                            <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
+                                                <a href="#" class="text-extra-dark-gray text-uppercase alt-font font-weight-600 text-small">@comment.Name</a>
+                                                <div class="text-small text-medium-gray text-uppercase margin-10px-bottom">@comment.Date.Value.ToString("MM/dd/yyyy")</div>
+                                                <p>@comment.Content</p>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-eight-top" id="comments">
+                            <div class="divider-full bg-medium-light-gray"></div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-lr-auto text-center margin-80px-tb sm-margin-50px-tb xs-margin-30px-tb">
+                            <div class="position-relative overflow-hidden width-100">
+                                <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase text-extra-dark-gray">Write A Comments</span>
+
+                            </div>
+                            @if (Session["uploadError"] != null)
+                            {
+                                <span>@Session["uploadError"]</span>
+
+                                Session["uploadError"] = null;
+                            }
+
+                        </div>
+                        @using (Html.BeginForm("CreateComment", "comments", new { singlId = Blog.Id }, FormMethod.Post))
+                        {
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <input type="text" name="Name" placeholder="Name *" class="medium-input">
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <input type="text" name="Email" placeholder="E-mail *" class="medium-input">
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea placeholder="Enter your comment here.." rows="8" name="Content" class="medium-textarea"></textarea>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                <button class="btn btn-dark-gray btn-small margin-15px-top" type="submit">Send message</button>
+                            </div>
+                        }
+
+                    </main>
+                    <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
+
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            @foreach (var item in Model.AboutManage)
+                            {
+                                <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase text-small font-weight-600 aside-title"><span> @item.Title</span></div>
+                                <a href="about-me.html"><img src="/Uploads/@item.Photo" alt="" class="margin-25px-bottom" /></a>
+                                <p class="margin-20px-bottom text-small">@item.Text</p>
+                            }
+
+
+                        </div>
+                        <div class="margin-50px-bottom">
+                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Follow Us</span></div>
+                            <div class="social-icon-style-1 text-center">
+                                <ul class="extra-small-icon">
+                                    <li>
+                                        @if (ViewBag.Settings.Facebook != null)
+                                        {
+                                            <a class="facebook text-white" href="@ViewBag.Settings.Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+
+                                        }
+                                    </li>
+                                    <li>
+                                        @if (ViewBag.Settings.Twitter != null)
+                                        {
+                                            <a class="twitter text-white" href="@ViewBag.Settings.Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+
+
+                                        }
+                                    </li>
+                                    <li>
+                                        @if (ViewBag.Settings.Google != null)
+                                        {
+                                            <a class="google text-white" href="@ViewBag.Settings.Google" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+
+
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Categories</span></div>
+                            <ul class="list-style-6 margin-50px-bottom text-small">
+                                @foreach (var blogcategory in Model.BloggCategories)
+                                {
+                                    <li><a href="#">@blogcategory.CategoryName</a><span>@blogcategory.SingleBlog.Count</span></li>
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="bg-deep-pink padding-30px-all text-white text-center margin-45px-bottom xs-margin-25px-bottom">
+                            <i class="fas fa-quote-left icon-small margin-15px-bottom display-block"></i>
+                            <span class="text-extra-large font-weight-300 margin-20px-bottom display-block">The future belongs to those who believe in the beauty of their dreams.</span>
+                            <a class="btn btn-very-small btn-transparent-white border-width-1 text-uppercase" href="portfolio-boxed-grid-overlay.html">Explore Portfolio</a>
+                        </div>
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            <div class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Popular post</span></div>
+                            <ul class="latest-post position-relative">
+                                @foreach (var item in Model.SingleBlog.OrderBy(bc => bc.Count))
+                                {
+                                    <li>
+                                        <figure>
+                                            <a href="blog-masonry.html"><img src="/Uploads/@item.IntroPhoto" alt=""></a>
+                                        </figure>
+                                        <div class="display-table-cell vertical-align-top text-small"><a href="blog-masonry.html" class="text-extra-dark-gray"><span class="display-inline-block margin-5px-bottom">@Html.Raw(item.Title.Substring(0, 25))</span></a> <span class="clearfix text-medium-gray text-small">@item.Date.Value.ToString("yyyyMMdd"))</span></div>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </div>
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            <div class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>tags cloud</span></div>
+                            <div class="tag-cloud">
+                                @foreach (var item in Model.Tags)
+                                {
+                                    <a href="blog-grid.html">@item.TagName</a>
+                                }
+
+                            </div>
+                        </div>
+
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            <div class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Instagram</span></div>
+                            <div class="instagram-follow-apo ">
+                                <ul id="instaFeed-aside">
+                                    @foreach (var item in Model.InstaPosts)
+                                    {
+                                    <li><figure><a href="@item.Link" target="_blank"><img src="/uploads/@item.Photo" class="insta-image"><span class="insta-counts"><i class="ti-heart"></i>6</span></a></figure></li>
+
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+
+
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <!-- end blog content -->
+    }
+
+    <!-- start footer -->
+    <footer class="footer-classic-dark bg-extra-dark-gray padding-five-bottom xs-padding-30px-bottom">
+        <div class="bg-dark-footer padding-50px-tb xs-padding-30px-tb">
+            <div class="container">
+                <div class="row equalize xs-equalize-auto">
+                    <!-- start slogan -->
+                    <div class="col-md-4 col-sm-5 col-xs-12 text-center alt-font display-table xs-text-center xs-margin-15px-bottom">
+                        <div class="display-table-cell vertical-align-middle">
+                            London based highly creative studio
+                        </div>
+                    </div>
+                    <!-- end slogan -->
+                    <!-- start logo -->
+                    <div class="col-md-4 col-sm-2 col-xs-12 text-center display-table xs-margin-10px-bottom">
+                        <div class="display-table-cell vertical-align-middle">
+                            <a href="index.html"><img class="footer-logo" src="~/Public/images/@ViewBag.Settings.SecondLogo" data-rjs="images/logo-white@2x.png" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- end logo -->
+                    <!-- start social media -->
+                    <div class="col-md-4 col-sm-5 col-xs-12 col-xs-12 text-center display-table xs-text-center">
+                        <div class="display-table-cell vertical-align-middle">
+                            <span class="alt-font margin-20px-right">On social networks</span>
+                            <div class="social-icon-style-8 display-inline-block vertical-align-middle">
+                                <ul class="small-icon no-margin-bottom">
+                                    <li>
+                                        @if (ViewBag.Settings.Facebook != null)
+                                        {
+                                            <a class="facebook text-white" href="@ViewBag.Settings.Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+
+                                        }
+                                    </li>
+                                    <li>
+                                        @if (ViewBag.Settings.Twitter != null)
+                                        {
+                                            <a class="twitter text-white" href="@ViewBag.Settings.Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+
+
+                                        }
+                                    </li>
+                                    <li>
+                                        @if (ViewBag.Settings.Google != null)
+                                        {
+                                            <a class="google text-white" href="@ViewBag.Settings.Google" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+
+                                        }
+                                    </li>
+                                    <li>
+                                        @if (ViewBag.Settings.Dribble != null)
+                                        {
+                                            <a class="google text-white" href="@ViewBag.Settings.Dribble" target="_blank"><i class="fab fa-dribbble"></i></a>
+
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end social media -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-widget-area padding-five-top padding-30px-bottom xs-padding-30px-top">
+            <div class="container">
+                <div class="row">
+                    <!-- start about -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-30px-bottom xs-text-center">
+                        <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">About Agency</div>
+                        <p class="text-small width-95 xs-width-100 no-margin">@ViewBag.Settings.AboutAgaency </p>
+                    </div>
+                    <!-- end about -->
+                    <!-- start blog post -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-30px-bottom">
+                        <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600 xs-text-center">Latest Blog Post</div>
+                        <ul class="latest-post position-relative top-3">
+                            <li class="border-bottom border-color-medium-dark-gray">
+                                <figure>
+                                    <a href="blog-post-layout-01.html"><img src="~/Public/images/latest-blog2.jpg" alt=""></a>
+                                </figure>
+                                <div class="text-small"><a href="blog-post-layout-01.html">Design is not just what looks...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
+                            </li>
+                            <li class="border-bottom border-color-medium-dark-gray">
+                                <figure>
+                                    <a href="blog-post-layout-02.html"><img src="~/Public/images/latest-blog3.jpg" alt=""></a>
+                                </figure>
+                                <div class="text-small"><a href="blog-post-layout-02.html">A lot of care, effort & passion...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
+                            </li>
+                            <li>
+                                <figure>
+                                    <a href="blog-post-layout-03.html"><img src="~/Public/images/latest-blog4.jpg" alt=""></a>
+                                </figure>
+                                <div class="text-small"><a href="blog-post-layout-03.html">I love making the stuff, that's...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end blog post -->
+                    <!-- start newsletter -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-30px-bottom xs-text-center">
+                        @*<div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">Subscribe Newsletter</div>
+                            <p class="text-small width-90 xs-width-100">@ViewBag.Settings.SubscribeText</p>*@
+                        @*<form id="subscribenewsletterform" action="javascript:void(0)" method="post">
+                                <div class="position-relative newsletter width-95">
+                                    <div id="success-subscribe-newsletter" class="no-margin-lr"></div>
+                                    <input type="text" id="email" name="email" class="bg-transparent text-small no-margin border-color-medium-dark-gray" placeholder="Enter your email...">
+                                    <button id="button-subscribe-newsletter" type="submit" class="btn btn-arrow-small position-absolute border-color-medium-dark-gray"><i class="fas fa-caret-right no-margin-left"></i></button>
+                                </div>
+                            </form>*@
+                    </div>
+                    <!-- end newsletter -->
+                    <!-- start instagram -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 widget xs-margin-5px-bottom xs-text-center">
+                        <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-20px-bottom font-weight-600">Follow us Instagram</div>
+                        <div class="instagram-follow-api">
+                            <ul id="instaFeed-footer"></ul>
+                        </div>
+                    </div>
+                    <!-- end instagram -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom border-top border-color-medium-dark-gray padding-30px-top">
+                <div class="row">
+                    <!-- start copyright -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">POFO - Portfolio Concept Theme</div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">&COPY; 2017 POFO is Proudly Powered by <a href="http://www.themezaa.com/" target="_blank" title="ThemeZaa">ThemeZaa</a></div>
+                    <!-- end copyright -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- start scroll to top -->
+    <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
+    <!-- end scroll to top  -->
+    <!-- javascript libraries -->
+    <script type="text/javascript" src="~/Public/js/jquery.js"></script>
+    <script type="text/javascript" src="~/Public/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/Public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Public/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Public/js/skrollr.min.js"></script>
+    <script type="text/javascript" src="~/Public/js/smooth-scroll.js"></script>
+    <script type="text/javascript" src="~/Public/js/jquery.appear.js"></script>
+    <!-- menu navigation -->
+    <script type="text/javascript" src="~/Public/js/bootsnav.js"></script>
+    <script type="text/javascript" src="~/Public/js/jquery.nav.js"></script>
+    <!-- animation -->
+    <script type="text/javascript" src="~/Public/js/wow.min.js"></script>
+    <!-- page scroll -->
+    <script type="text/javascript" src="~/Public/js/page-scroll.js"></script>
+    <!-- swiper carousel -->
+    <script type="text/javascript" src="~/Public/js/swiper.min.js"></script>
+    <!-- counter -->
+    <script type="text/javascript" src="~/Public/js/jquery.count-to.js"></script>
+    <!-- parallax -->
+    <script type="text/javascript" src="~/Public/js/jquery.stellar.js"></script>
+    <!-- magnific popup -->
+    <script type="text/javascript" src="~/Public/js/jquery.magnific-popup.min.js"></script>
+    <!-- portfolio with shorting tab -->
+    <script type="text/javascript" src="~/Public/js/isotope.pkgd.min.js"></script>
+    <!-- images loaded -->
+    <script type="text/javascript" src="~/Public/js/imagesloaded.pkgd.min.js"></script>
+    <!-- pull menu -->
+    <script type="text/javascript" src="~/Public/js/classie.js"></script>
+    <script type="text/javascript" src="~/Public/js/hamburger-menu.js"></script>
+    <!-- counter  -->
+    <script type="text/javascript" src="~/Public/js/counter.js"></script>
+    <!-- fit video  -->
+    <script type="text/javascript" src="~/Public/js/jquery.fitvids.js"></script>
+    <!-- equalize -->
+    <script type="text/javascript" src="~/Public/js/equalize.min.js"></script>
+    <!-- skill bars  -->
+    <script type="text/javascript" src="~/Public/js/skill.bars.jquery.js"></script>
+    <!-- justified gallery  -->
+    <script type="text/javascript" src="~/Public/js/justified-gallery.min.js"></script>
+    <!--pie chart-->
+    <script type="text/javascript" src="~/Public/js/jquery.easypiechart.min.js"></script>
+    <!-- instagram -->
+    <script type="text/javascript" src="~/Public/js/instafeed.min.js"></script>
+    <!-- retina -->
+    <script type="text/javascript" src="~/Public/js/retina.min.js"></script>
+
+    <!-- setting -->
+    <script type="text/javascript" src="~/Public/js/main.js"></script>
+</body>
+</html>

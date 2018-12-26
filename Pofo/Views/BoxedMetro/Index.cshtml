@@ -1,0 +1,343 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- start portfolio section -->
+<section class="wow fadeIn padding-90px-top bg-light-gray sm-padding-50px-top xs-padding-30px-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- start filter navigation -->
+                <ul class="portfolio-filter nav nav-tabs border-none portfolio-filter-tab-1 font-weight-600 alt-font text-uppercase text-center margin-80px-bottom text-small sm-margin-40px-bottom xs-margin-20px-bottom">
+                    <li class="nav active"><a href="javascript:void(0);" data-filter="*" class="xs-display-inline light-gray-text-link text-very-small">All</a></li>
+                    @foreach (var department in Model.Departments)
+                    {
+
+                        <li class="nav"><a href="javascript:void(0);" data-filter=".@department.DepName.ToLower().Replace(" ","_")" class="xs-display-inline light-gray-text-link text-very-small">@department.DepName</a></li>
+
+                    }
+                </ul>
+                <!-- end filter navigation -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 no-padding xs-padding-15px-lr">
+                <div class="filter-content overflow-hidden">
+                    <ul class="portfolio-grid work-3col gutter-medium hover-option6 lightbox-portfolio">
+                        <li class="grid-sizer"></li>
+                        <!-- start portfolio-item item -->
+                        @foreach (var depscard in Model.DepsCards)
+                        {
+                            <li class="@depscard.Departments.DepName.ToLower().Replace(" ","_")  grid-item wow fadeInUp last-paragraph-no-margin">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        @foreach (var depcardphoto in depscard.DepCardPhotos)
+                                        {
+                                            <img src="/Uploads/@depcardphoto.PhotoName" alt="" />
+
+                                        }
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-01.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item27.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-01.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">@depscard.Title</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">@depscard.Name</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        }
+                        <!-- end portfolio item -->
+                        @*    <!-- start portfolio item -->
+                            <li class="branding photography advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item28.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-03.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item28.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-03.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Designblast Inc</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="design photography grid-item wow fadeInUp last-paragraph-no-margin">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item105.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-04.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item105.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-04.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">HardDot Stone</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Branding and Identity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="design branding grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item106.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-05.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item106.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-05.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Crop Identity</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Branding and Brochure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.6s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item107.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-06.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item107.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-06.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Violator Series</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item31.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-07.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item31.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-07.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Genesis Design</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="design photography branding grid-item wow fadeInUp last-paragraph-no-margin">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item109.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-08.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item109.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-08.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Jeremy Dupont</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Branding and Identity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="branding advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item108.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-01.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item108.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-01.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Bill Gardner</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="branding advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item110.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-02.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item110.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-02.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">The Aparthotel</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="branding advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item74.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-03.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item74.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-03.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Emperor Dry</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="branding advertising grid-item wow fadeInUp last-paragraph-no-margin">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item73.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-04.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item73.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-04.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Potato Islands</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="advertising web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item75.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-05.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item75.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-05.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Daimler Financial</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->
+                            <!-- start portfolio item -->
+                            <li class="branding web grid-item wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.6s">
+                                <figure>
+                                    <div class="portfolio-img bg-extra-dark-gray position-relative text-center overflow-hidden">
+                                        <img src="images/portfolio-item76.jpg" alt="" />
+                                        <div class="portfolio-icon">
+                                            <a href="single-project-page-06.html"><i class="fas fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                            <a class="gallery-link" title="IMAGE TITLE" href="images/portfolio-item76.jpg"><i class="fas fa-search text-extra-dark-gray" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <figcaption class="bg-white">
+                                        <div class="portfolio-hover-main text-center">
+                                            <div class="portfolio-hover-box vertical-align-middle">
+                                                <div class="portfolio-hover-content position-relative">
+                                                    <a href="single-project-page-06.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block">Skoda Corporate</span></a>
+                                                    <p class="text-medium-gray text-extra-small text-uppercase">Web and Photography</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end portfolio item -->*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end portfolio sections ---->

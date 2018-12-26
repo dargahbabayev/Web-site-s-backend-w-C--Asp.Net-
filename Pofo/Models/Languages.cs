@@ -32,6 +32,13 @@ namespace Pofo.Models
             this.Settings = new HashSet<Settings>();
             this.ContactUs = new HashSet<ContactUs>();
             this.NewProject = new HashSet<NewProject>();
+            this.BoxedMetroPage = new HashSet<BoxedMetroPage>();
+            this.BloggCategories = new HashSet<BloggCategories>();
+            this.BlogPage = new HashSet<BlogPage>();
+            this.AboutManage = new HashSet<AboutManage>();
+            this.SingleBlog = new HashSet<SingleBlog>();
+            this.Tags = new HashSet<Tags>();
+            this.MainPageSlider = new HashSet<MainPageSlider>();
         }
     
         public int Id { get; set; }
@@ -67,5 +74,19 @@ namespace Pofo.Models
         public virtual ICollection<ContactUs> ContactUs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NewProject> NewProject { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BoxedMetroPage> BoxedMetroPage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BloggCategories> BloggCategories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BlogPage> BlogPage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AboutManage> AboutManage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SingleBlog> SingleBlog { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tags> Tags { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MainPageSlider> MainPageSlider { get; set; }
     }
 }
