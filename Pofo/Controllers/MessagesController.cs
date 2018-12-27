@@ -16,7 +16,7 @@ namespace Pofo.Controllers
         private PofoDbEntities db = new PofoDbEntities();
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddContact([Bind(Include = "Id,Name,Email,Subject,Status,ContentMessage")]Message message)
+        public ActionResult AddContact([Bind(Include = "Id,Name,Email,Subject,Status,ContentMessage")]Message message,int? count)
         {
             if (message.Name == null || message.Email == null || message.Subject == null)
             {
@@ -27,12 +27,14 @@ namespace Pofo.Controllers
             {
                 message.Date = DateTime.Now;
                 message.Status = false;
-
                 db.Message.Add(message);
                 db.SaveChanges();
                
             }
-
+            if (count!=null)
+            {
+                return RedirectToAction("Index", "main");
+            }
             return RedirectToAction("Index", "ContactUs");
         }
 

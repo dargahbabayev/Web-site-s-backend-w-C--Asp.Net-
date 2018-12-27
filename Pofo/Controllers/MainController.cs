@@ -24,6 +24,7 @@ namespace Pofo.Controllers
                 HonorNumbers = db.HonorNumbers.Where(n => n.Languages.LangName == Lang.ToString()).ToList(),
                 People = db.People.Where(p => p.Languages.LangName == Lang.ToString()).ToList(),
                 Departments = db.Departments.ToList(),
+                NewProjects=db.NewProject.Where(n=> n.Languages.LangName==Lang.ToString()).ToList(),
                 DepsCards = db.DepCards.ToList(),
                 DepsCardsPhotos = db.DepCardPhotos.ToList(),
                 MainPageSliders=db.MainPageSlider.Where(p => p.Languages.LangName == Lang.ToString()).ToList(),

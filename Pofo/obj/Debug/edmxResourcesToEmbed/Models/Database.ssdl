@@ -216,9 +216,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="250" />
-    <Property Name="Text" Type="nvarchar" MaxLength="350" />
     <Property Name="Photo" Type="nvarchar" MaxLength="350" />
     <Property Name="LangId" Type="int" />
+    <Property Name="DepId" Type="int" />
   </EntityType>
   <EntityType Name="People">
     <Key>
@@ -239,6 +239,15 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PhotoName" Type="nvarchar" MaxLength="255" />
     <Property Name="SectionId" Type="int" />
+  </EntityType>
+  <EntityType Name="PlanProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="450" />
+    <Property Name="Title" Type="nvarchar" MaxLength="60" />
+    <Property Name="LangId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Provide">
     <Key>
@@ -572,6 +581,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_NewProject_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="NewProject" Type="Self.NewProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewProject">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_NewProject_Languages">
     <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
     <End Role="NewProject" Type="Self.NewProject" Multiplicity="*" />
@@ -605,6 +626,18 @@
       </Principal>
       <Dependent Role="Photos">
         <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanProject_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="PlanProject" Type="Self.PlanProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProject">
+        <PropertyRef Name="LangId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -742,6 +775,7 @@
     <EntitySet Name="NewProject" EntityType="Self.NewProject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanProject" EntityType="Self.PlanProject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Provide" EntityType="Self.Provide" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ServicePage" EntityType="Self.ServicePage" Schema="dbo" store:Type="Tables" />
@@ -827,6 +861,10 @@
       <End Role="Languages" EntitySet="Languages" />
       <End Role="MainPageSlider" EntitySet="MainPageSlider" />
     </AssociationSet>
+    <AssociationSet Name="FK_NewProject_Departments" Association="Self.FK_NewProject_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="NewProject" EntitySet="NewProject" />
+    </AssociationSet>
     <AssociationSet Name="FK_NewProject_Languages" Association="Self.FK_NewProject_Languages">
       <End Role="Languages" EntitySet="Languages" />
       <End Role="NewProject" EntitySet="NewProject" />
@@ -838,6 +876,10 @@
     <AssociationSet Name="FK_Photos_Sections" Association="Self.FK_Photos_Sections">
       <End Role="Sections" EntitySet="Sections" />
       <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanProject_Languages" Association="Self.FK_PlanProject_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="PlanProject" EntitySet="PlanProject" />
     </AssociationSet>
     <AssociationSet Name="FK_Provide_Languages" Association="Self.FK_Provide_Languages">
       <End Role="Languages" EntitySet="Languages" />

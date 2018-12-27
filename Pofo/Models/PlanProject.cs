@@ -12,15 +12,13 @@ namespace Pofo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NewProject
+    public partial class PlanProject
     {
         public int Id { get; set; }
-        public string Title { get; set; }
         public string Photo { get; set; }
-        public Nullable<int> LangId { get; set; }
-        public Nullable<int> DepId { get; set; }
+        public string Title { get; set; }
+        public int LangId { get; set; }
     
-        public virtual Departments Departments { get; set; }
         public virtual Languages Languages { get; set; }
     }
 }

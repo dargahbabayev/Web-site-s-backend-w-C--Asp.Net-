@@ -45,7 +45,6 @@ namespace Pofo.Models
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<ContactUs> ContactUs { get; set; }
-        public virtual DbSet<NewProject> NewProject { get; set; }
         public virtual DbSet<ContactInfos> ContactInfos { get; set; }
         public virtual DbSet<BoxedMetroPage> BoxedMetroPage { get; set; }
         public virtual DbSet<BloggCategories> BloggCategories { get; set; }
@@ -59,5 +58,7 @@ namespace Pofo.Models
         public virtual DbSet<Tags> Tags { get; set; }
         public virtual DbSet<InstaPosts> InstaPosts { get; set; }
         public virtual DbSet<MainPageSlider> MainPageSlider { get; set; }
+        public virtual DbSet<NewProject> NewProject { get; set; }
+        public virtual DbSet<PlanProject> PlanProject { get; set; }
     }
 }

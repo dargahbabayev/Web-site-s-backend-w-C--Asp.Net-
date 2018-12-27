@@ -18,6 +18,7 @@ namespace Pofo.Models
         public Departments()
         {
             this.DepCards = new HashSet<DepCards>();
+            this.NewProject = new HashSet<NewProject>();
         }
     
         public int Id { get; set; }
@@ -27,5 +28,7 @@ namespace Pofo.Models
         public virtual Languages Languages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DepCards> DepCards { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewProject> NewProject { get; set; }
     }
 }

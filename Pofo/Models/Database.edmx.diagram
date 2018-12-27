@@ -39,8 +39,6 @@
         <EntityTypeShape EntityType="PofoDbModel.Message" Width="1.5" PointX="8.375" PointY="3.75" />
         <EntityTypeShape EntityType="PofoDbModel.ContactUs" Width="1.5" PointX="1.125" PointY="0.75" />
         <AssociationConnector Association="PofoDbModel.FK_ContactUs_Languages" />
-        <EntityTypeShape EntityType="PofoDbModel.NewProject" Width="1.5" PointX="3" PointY="46.125" />
-        <AssociationConnector Association="PofoDbModel.FK_NewProject_Languages" />
         <EntityTypeShape EntityType="PofoDbModel.BoxedMetroPage" Width="1.5" PointX="3" PointY="49.5" />
         <AssociationConnector Association="PofoDbModel.FK_BoxedMetroPage_Languages" />
         <EntityTypeShape EntityType="PofoDbModel.BloggCategories" Width="1.5" PointX="3" PointY="53.25" />
@@ -67,6 +65,11 @@
         <EntityTypeShape EntityType="PofoDbModel.InstaPosts" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="PofoDbModel.MainPageSlider" Width="1.5" PointX="3" PointY="65.875" />
         <AssociationConnector Association="PofoDbModel.FK_MainPageSlider_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.NewProject" Width="1.5" PointX="5.25" PointY="15.25" />
+        <AssociationConnector Association="PofoDbModel.FK_NewProject_Departments" />
+        <AssociationConnector Association="PofoDbModel.FK_NewProject_Languages" />
+        <EntityTypeShape EntityType="PofoDbModel.PlanProject" Width="1.5" PointX="3" PointY="46" />
+        <AssociationConnector Association="PofoDbModel.FK_PlanProject_Languages" />
         </Diagram>
       <Diagram DiagramId="91804ee7119241248fb8cb712590090f" Name="Diagram2" >
         <EntityTypeShape EntityType="PofoDbModel.ContactInfos" Width="1.5" PointX="0.75" PointY="0.75" />

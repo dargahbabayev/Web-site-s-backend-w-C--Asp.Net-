@@ -229,17 +229,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NewProject">
-      <EntityTypeMapping TypeName="PofoDbModel.NewProject">
-        <MappingFragment StoreEntitySet="NewProject">
-          <ScalarProperty Name="LangId" ColumnName="LangId" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ContactInfos">
       <EntityTypeMapping TypeName="PofoDbModel.ContactInfos">
         <MappingFragment StoreEntitySet="ContactInfos">
@@ -375,6 +364,27 @@
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewProject">
+      <EntityTypeMapping TypeName="PofoDbModel.NewProject">
+        <MappingFragment StoreEntitySet="NewProject">
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanProject">
+      <EntityTypeMapping TypeName="PofoDbModel.PlanProject">
+        <MappingFragment StoreEntitySet="PlanProject">
+          <ScalarProperty Name="LangId" ColumnName="LangId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

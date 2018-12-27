@@ -83,7 +83,6 @@
                         <li>
                             <a href="@Url.Action("index" ,"languages")"><i class="fas fa-language"></i> Languages</a>
 
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-camera"></i>   Photos<span class="fa arrow"></span></a>
@@ -95,7 +94,7 @@
                                     <a href="@Url.Action("index" ,"photos")">Photos</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-pencil"></i>   Blog<span class="fa arrow"></span></a>
@@ -195,7 +194,7 @@
                                     <a href="@Url.Action("index" ,"contactuspage")">Main Page</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index" ,"NewProjects")">Right SideB</a>
+                                    <a href="@Url.Action("index" ,"PlanProjects")">Right SideB</a>
                                 </li>
 
                             </ul>
@@ -212,10 +211,10 @@
                             </ul>
 
                         </li>
-
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="@Url.Action("index" ,"newprojects", new { Area="Manage"})"><i class="fab fa-empire"></i>New Projects</a>
                         </li>
+
 
                     </ul>
                 </div>

@@ -1,4 +1,4 @@
-﻿@model Pofo.Models.NewProject
+﻿@model Pofo.Models.PlanProject
 
 @{
     ViewBag.Title = "Details";
@@ -8,17 +8,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>NewProject</h4>
+    <h4>PlanProject</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Photo)
         </dt>
@@ -28,11 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Departments.DepName)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Departments.DepName)
+            @Html.DisplayFor(model => model.Title)
         </dd>
 
         <dt>

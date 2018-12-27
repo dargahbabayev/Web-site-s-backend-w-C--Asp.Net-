@@ -24,7 +24,8 @@ namespace Pofo.Controllers
             ViewHome model = new ViewHome
             {
                 ServicePage = db.ServicePage.Where(a => a.Languages.LangName == Lang.ToString()).ToList(),
-                NewProjects = db.NewProject.Where(a => a.Languages.LangName == Lang.ToString()).ToList(),
+                PlanProject = db.PlanProject.Where(a => a.Languages.LangName == Lang.ToString()).ToList(),
+
                 ContactInfos=db.ContactInfos.ToList(),
 
             };

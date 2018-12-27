@@ -32,6 +32,7 @@ namespace Pofo.Models
         public List<BlogTags> BlogTags { get; set; }
         public List<InstaPosts> InstaPosts { get; set; }
         public List<MainPageSlider> MainPageSliders { get; set; }
+        public List<PlanProject> PlanProject { get; set; }
 
 
 

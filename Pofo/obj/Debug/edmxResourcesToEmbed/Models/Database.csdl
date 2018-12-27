@@ -41,7 +41,6 @@
     <NavigationProperty Name="Team" Relationship="PofoDbModel.FK_Team_Languages" FromRole="Languages" ToRole="Team" />
     <NavigationProperty Name="Settings" Relationship="PofoDbModel.FK_Settings_Languages" FromRole="Languages" ToRole="Settings" />
     <NavigationProperty Name="ContactUs" Relationship="PofoDbModel.FK_ContactUs_Languages" FromRole="Languages" ToRole="ContactUs" />
-    <NavigationProperty Name="NewProject" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="Languages" ToRole="NewProject" />
     <NavigationProperty Name="BoxedMetroPage" Relationship="PofoDbModel.FK_BoxedMetroPage_Languages" FromRole="Languages" ToRole="BoxedMetroPage" />
     <NavigationProperty Name="BloggCategories" Relationship="PofoDbModel.FK_BloggCategories_Languages" FromRole="Languages" ToRole="BloggCategories" />
     <NavigationProperty Name="BlogPage" Relationship="PofoDbModel.FK_BlogPage_Languages" FromRole="Languages" ToRole="BlogPage" />
@@ -49,6 +48,8 @@
     <NavigationProperty Name="SingleBlog" Relationship="PofoDbModel.FK_SingleBlog_Languages" FromRole="Languages" ToRole="SingleBlog" />
     <NavigationProperty Name="Tags" Relationship="PofoDbModel.FK_Tags_Languages" FromRole="Languages" ToRole="Tags" />
     <NavigationProperty Name="MainPageSlider" Relationship="PofoDbModel.FK_MainPageSlider_Languages" FromRole="Languages" ToRole="MainPageSlider" />
+    <NavigationProperty Name="NewProject" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="Languages" ToRole="NewProject" />
+    <NavigationProperty Name="PlanProject" Relationship="PofoDbModel.FK_PlanProject_Languages" FromRole="Languages" ToRole="PlanProject" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -169,11 +170,6 @@
       <End Role="Languages" EntitySet="Languages" />
       <End Role="ContactUs" EntitySet="ContactUs" />
     </AssociationSet>
-    <EntitySet Name="NewProject" EntityType="PofoDbModel.NewProject" />
-    <AssociationSet Name="FK_NewProject_Languages" Association="PofoDbModel.FK_NewProject_Languages">
-      <End Role="Languages" EntitySet="Languages" />
-      <End Role="NewProject" EntitySet="NewProject" />
-    </AssociationSet>
     <EntitySet Name="ContactInfos" EntityType="PofoDbModel.ContactInfos" />
     <EntitySet Name="BoxedMetroPage" EntityType="PofoDbModel.BoxedMetroPage" />
     <AssociationSet Name="FK_BoxedMetroPage_Languages" Association="PofoDbModel.FK_BoxedMetroPage_Languages">
@@ -242,6 +238,20 @@
     <AssociationSet Name="FK_MainPageSlider_Languages" Association="PofoDbModel.FK_MainPageSlider_Languages">
       <End Role="Languages" EntitySet="Languages" />
       <End Role="MainPageSlider" EntitySet="MainPageSlider" />
+    </AssociationSet>
+    <EntitySet Name="NewProject" EntityType="PofoDbModel.NewProject" />
+    <AssociationSet Name="FK_NewProject_Departments" Association="PofoDbModel.FK_NewProject_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="NewProject" EntitySet="NewProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NewProject_Languages" Association="PofoDbModel.FK_NewProject_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="NewProject" EntitySet="NewProject" />
+    </AssociationSet>
+    <EntitySet Name="PlanProject" EntityType="PofoDbModel.PlanProject" />
+    <AssociationSet Name="FK_PlanProject_Languages" Association="PofoDbModel.FK_PlanProject_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="PlanProject" EntitySet="PlanProject" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Photos">
@@ -374,6 +384,7 @@
     <Property Name="LangId" Type="Int32" />
     <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_Departments_Languages" FromRole="Departments" ToRole="Languages" />
     <NavigationProperty Name="DepCards" Relationship="PofoDbModel.FK_DepCards_Departments" FromRole="Departments" ToRole="DepCards" />
+    <NavigationProperty Name="NewProject" Relationship="PofoDbModel.FK_NewProject_Departments" FromRole="Departments" ToRole="NewProject" />
   </EntityType>
   <EntityType Name="DepCards">
     <Key>
@@ -598,29 +609,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ContactUs">
-        <PropertyRef Name="LangId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="NewProject">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
-    <Property Name="Photo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
-    <Property Name="LangId" Type="Int32" />
-    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="NewProject" ToRole="Languages" />
-  </EntityType>
-  <Association Name="FK_NewProject_Languages">
-    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
-    <End Type="PofoDbModel.NewProject" Role="NewProject" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Languages">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NewProject">
         <PropertyRef Name="LangId" />
       </Dependent>
     </ReferentialConstraint>
@@ -934,6 +922,64 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="MainPageSlider">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NewProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" />
+    <Property Name="DepId" Type="Int32" />
+    <NavigationProperty Name="Departments" Relationship="PofoDbModel.FK_NewProject_Departments" FromRole="NewProject" ToRole="Departments" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_NewProject_Languages" FromRole="NewProject" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_NewProject_Departments">
+    <End Type="PofoDbModel.Departments" Role="Departments" Multiplicity="0..1" />
+    <End Type="PofoDbModel.NewProject" Role="NewProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewProject">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NewProject_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="0..1" />
+    <End Type="PofoDbModel.NewProject" Role="NewProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewProject">
+        <PropertyRef Name="LangId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PlanProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="LangId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_PlanProject_Languages" FromRole="PlanProject" ToRole="Languages" />
+  </EntityType>
+  <Association Name="FK_PlanProject_Languages">
+    <End Type="PofoDbModel.Languages" Role="Languages" Multiplicity="1" />
+    <End Type="PofoDbModel.PlanProject" Role="PlanProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanProject">
         <PropertyRef Name="LangId" />
       </Dependent>
     </ReferentialConstraint>
