@@ -970,6 +970,7 @@
     <Property Name="Photo" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
     <Property Name="Title" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
     <Property Name="LangId" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Languages" Relationship="PofoDbModel.FK_PlanProject_Languages" FromRole="PlanProject" ToRole="Languages" />
   </EntityType>
   <Association Name="FK_PlanProject_Languages">

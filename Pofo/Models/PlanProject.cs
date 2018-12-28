@@ -18,6 +18,7 @@ namespace Pofo.Models
         public string Photo { get; set; }
         public string Title { get; set; }
         public int LangId { get; set; }
+        public string Text { get; set; }
     
         public virtual Languages Languages { get; set; }
     }

@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Pofo.Models;
-
+using System.IO;
 namespace Pofo.Areas.Manage.Controllers
 {
     public class PlanProjectsController : Controller
@@ -35,7 +35,6 @@ namespace Pofo.Areas.Manage.Controllers
             }
             return View(planProject);
         }
-
         // GET: Manage/PlanProjects/Create
         public ActionResult Create()
         {
@@ -48,8 +47,21 @@ namespace Pofo.Areas.Manage.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Photo,Title,LangId")] PlanProject planProject)
+        public ActionResult Create([Bind(Include = "Id,Photo,Title,LangId,Text")] PlanProject planProject,HttpPostedFileBase Photo)
         {
+            PlanProject plan = db.PlanProject.Where(p => p.LangId == planProject.LangId).FirstOrDefault();
+            if (plan != null)
+            {
+                Session["LangError"] = "This Plan  already has created with selected Language   ";
+                return RedirectToAction("index", "planprojects");
+            }
+            if (Photo != null)
+            {
+                string filename = DateTime.Now.ToString("yyMMddHHmmss") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), filename);
+                Photo.SaveAs(path);
+                planProject.Photo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.PlanProject.Add(planProject);
@@ -61,6 +73,7 @@ namespace Pofo.Areas.Manage.Controllers
             return View(planProject);
         }
 
+     
         // GET: Manage/PlanProjects/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -82,11 +95,29 @@ namespace Pofo.Areas.Manage.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Photo,Title,LangId")] PlanProject planProject)
+        public ActionResult Edit([Bind(Include = "Id,Photo,Title,LangId,Text")] PlanProject planProject,HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+
+                string filename = DateTime.Now.ToString("yyMMddHHmmss") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), filename);
+                Photo.SaveAs(path);
+                planProject.Photo = filename;
+                PlanProject oldPhoto = db.PlanProject.Find(planProject.Id);
+                System.IO.File.Delete(Path.Combine(Server.MapPath("~/Uploads"), oldPhoto.Photo));
+                db.Entry(oldPhoto).State = EntityState.Detached;
+
+
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(planProject).State = EntityState.Modified;
+                if (Photo == null)
+                {
+                    db.Entry(planProject).Property(p => p.Photo).IsModified = false;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

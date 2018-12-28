@@ -31,11 +31,11 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 last-paragraph-no-margin wow fadeInRight">
                 <div class="padding-ten-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100 sm-text-center">
-                    @foreach (var item in Model.NewProjects)
+                    @foreach (var item in Model.PlanProject)
                     {
                         <img src="/Uploads/@item.Photo" alt="" class="border-radius-6 margin-35px-bottom xs-margin-30px-bottom">
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom display-block">@item.Title</span>
-                        <p>@item.</p>
+                        <p>@item.Text</p>
                         <a href="about-us-modern.html" class="btn btn-dark-gray btn-small text-extra-small border-radius-4 margin-25px-top">About Company</a>
                     }
 
@@ -44,7 +44,7 @@
         </div>
     </div>
 </section>
-<!-- end contact form section -->
+<!-- end contact form section -->s
 <!-- start information section -->
 <section class="no-padding-tb bg-light-gray wow fadeIn">
     <div class="container-fluid no-padding">

@@ -382,6 +382,7 @@
     <EntitySetMapping Name="PlanProject">
       <EntityTypeMapping TypeName="PofoDbModel.PlanProject">
         <MappingFragment StoreEntitySet="PlanProject">
+          <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="LangId" ColumnName="LangId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />

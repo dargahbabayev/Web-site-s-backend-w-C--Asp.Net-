@@ -248,6 +248,7 @@
     <Property Name="Photo" Type="nvarchar" MaxLength="450" />
     <Property Name="Title" Type="nvarchar" MaxLength="60" />
     <Property Name="LangId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="350" />
   </EntityType>
   <EntityType Name="Provide">
     <Key>

@@ -50,6 +50,7 @@ namespace Pofo.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,MainSlogan,LangId")] ContactUs contactUs)
         {
+           
             if (ModelState.IsValid)
             {
                 db.ContactUs.Add(contactUs);
